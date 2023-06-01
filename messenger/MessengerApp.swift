@@ -5,7 +5,7 @@ struct MessengerApp: App {
     
   var body: some Scene {
         WindowGroup {
-            ContentView()
+            MessagesView()
         }
     }
 }

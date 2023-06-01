@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E652A8E12A28C8650010F621 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E02A28C8650010F621 /* Messages.swift */; };
+		E652A8E52A28C9120010F621 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E42A28C9120010F621 /* User.swift */; };
+		E652A8E82A28C9650010F621 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E72A28C9650010F621 /* MessageService.swift */; };
 		E6A477752A284DA40024081F /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477742A284DA40024081F /* MessengerApp.swift */; };
-		E6A477772A284DA40024081F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477762A284DA40024081F /* ContentView.swift */; };
+		E6A477772A284DA40024081F /* MessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477762A284DA40024081F /* MessagesView.swift */; };
 		E6A477792A284DA40024081F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A477782A284DA40024081F /* Assets.xcassets */; };
 		E6A4777C2A284DA40024081F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A4777B2A284DA40024081F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E652A8E02A28C8650010F621 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		E652A8E42A28C9120010F621 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E652A8E72A28C9650010F621 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		E6A477712A284DA40024081F /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A477742A284DA40024081F /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
-		E6A477762A284DA40024081F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E6A477762A284DA40024081F /* MessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesView.swift; sourceTree = "<group>"; };
 		E6A477782A284DA40024081F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6A4777B2A284DA40024081F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +38,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E652A8DE2A28C83F0010F621 /* MessageService */ = {
+			isa = PBXGroup;
+			children = (
+				E652A8DF2A28C85B0010F621 /* Entities */,
+				E652A8E72A28C9650010F621 /* MessageService.swift */,
+			);
+			path = MessageService;
+			sourceTree = "<group>";
+		};
+		E652A8DF2A28C85B0010F621 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E652A8E02A28C8650010F621 /* Messages.swift */,
+				E652A8E42A28C9120010F621 /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		E6A477682A284DA40024081F = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +75,9 @@
 		E6A477732A284DA40024081F /* messenger */ = {
 			isa = PBXGroup;
 			children = (
+				E652A8DE2A28C83F0010F621 /* MessageService */,
 				E6A477742A284DA40024081F /* MessengerApp.swift */,
-				E6A477762A284DA40024081F /* ContentView.swift */,
+				E6A477762A284DA40024081F /* MessagesView.swift */,
 				E6A477782A284DA40024081F /* Assets.xcassets */,
 				E6A4777A2A284DA40024081F /* Preview Content */,
 			);
@@ -137,7 +162,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6A477772A284DA40024081F /* ContentView.swift in Sources */,
+				E652A8E82A28C9650010F621 /* MessageService.swift in Sources */,
+				E652A8E12A28C8650010F621 /* Messages.swift in Sources */,
+				E6A477772A284DA40024081F /* MessagesView.swift in Sources */,
+				E652A8E52A28C9120010F621 /* User.swift in Sources */,
 				E6A477752A284DA40024081F /* MessengerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,36 @@
+import Foundation
+
+protocol Message {
+    associatedtype Content
+    
+    var id: Int64 { get }
+    var sender: User { get }
+    var content: Content { get }
+}
+
+// MARK: Text Message
+
+struct TextMessage: Message {
+    let id: Int64
+    let sender: User
+    let content: String
+}
+
+// MARK: Poll Message
+
+struct PollMessage: Message {
+    let id: Int64
+    let sender: User
+    let content: Poll
+}
+
+struct Poll {
+    let title: String
+    let selectedOptionId: Int?
+    let options: [PollOption]
+}
+
+struct PollOption {
+    let id: Int
+    let title: String
+}
