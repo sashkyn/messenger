@@ -1,7 +1,7 @@
 import Foundation
 
-protocol Message {
-    associatedtype Content
+protocol Message: Hashable {
+    associatedtype Content: Hashable
     
     var id: Int64 { get }
     var sender: User { get }
@@ -24,13 +24,13 @@ struct PollMessage: Message {
     let content: Poll
 }
 
-struct Poll {
+struct Poll: Hashable {
     let title: String
     let selectedOptionId: Int?
     let options: [PollOption]
 }
 
-struct PollOption {
+struct PollOption: Hashable {
     let id: Int
     let title: String
 }

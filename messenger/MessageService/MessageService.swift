@@ -6,8 +6,8 @@ protocol MessageService: AnyObject {
     var messages: [any Message] { get }
     var messagesPublisher: AnyPublisher<[any Message], Never> { get }
     
-    func send(textMessage: TextMessage)
-    func send(pollMessage: PollMessage)
+    func send(text: String)
+    func send(poll: Poll)
     func select(pollOptionId: Int?, in pollMessageId: Int)
 }
 
@@ -23,11 +23,21 @@ final class MockMessageService: MessageService {
     
     private let messagesSubject = CurrentValueSubject<[any Message], Never>(Constants.messages)
     
-    func send(textMessage: TextMessage) {
+    func send(text: String) {
+        let textMessage = TextMessage(
+            id: Int64.random(in: 0..<9999999),
+            sender: .init(id: 1, firstName: "Aleksandr", lastName: "Martseniuk", avatarURL: nil),
+            content: text
+        )
         messagesSubject.send(messages + [textMessage])
     }
     
-    func send(pollMessage: PollMessage) {
+    func send(poll: Poll) {
+        let pollMessage = PollMessage(
+            id: Int64.random(in: 0..<9999999),
+            sender: .init(id: 1, firstName: "Aleksandr", lastName: "Martseniuk", avatarURL: nil),
+            content: poll
+        )
         messagesSubject.send(messages + [pollMessage])
     }
     
