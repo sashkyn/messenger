@@ -5,7 +5,7 @@ struct MessengerApp: App {
     
   var body: some Scene {
         WindowGroup {
-            MessagesView(
+            MessagesScreenView(
                 viewModel: .init(
                     service: MockMessageService()
                 )

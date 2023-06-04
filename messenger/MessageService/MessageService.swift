@@ -26,7 +26,7 @@ final class MockMessageService: MessageService {
     func send(text: String) {
         let textMessage = TextMessage(
             id: Int64.random(in: 0..<9999999),
-            sender: .init(id: 1, firstName: "Aleksandr", lastName: "Martseniuk", avatarURL: nil),
+            sender: Constants.developer1,
             content: text
         )
         messagesSubject.send(messages + [textMessage])
@@ -35,7 +35,7 @@ final class MockMessageService: MessageService {
     func send(poll: Poll) {
         let pollMessage = PollMessage(
             id: Int64.random(in: 0..<9999999),
-            sender: .init(id: 1, firstName: "Aleksandr", lastName: "Martseniuk", avatarURL: nil),
+            sender: Constants.developer1,
             content: poll
         )
         messagesSubject.send(messages + [pollMessage])
@@ -65,36 +65,43 @@ final class MockMessageService: MessageService {
     }
 }
 
-private struct Constants {
+extension MockMessageService {
     
-    static let messages: [any Message] = [
-        TextMessage(
-            id: 0,
-            sender: .init(id: 1, firstName: "Aleksandr", lastName: "Martseniuk", avatarURL: nil),
-            content: "Hello World!"
-        ),
-        TextMessage(
-            id: 1,
-            sender: .init(id: 2, firstName: "Kirill", lastName: "Baranov", avatarURL: nil),
-            content: "Hello World!"
-        ),
-        TextMessage(
-            id: 2,
-            sender: .init(id: 3, firstName: "Evgeniy", lastName: "Usov", avatarURL: nil),
-            content: "Hello World!"
-        ),
-        PollMessage(
-            id: 3,
-            sender: .init(id: 1, firstName: "Aleksandr", lastName: "Martseniuk", avatarURL: nil),
-            content: .init(
-                title: "What technology we will choose?",
-                selectedOptionId: nil,
-                options: [
-                    .init(id: 0, title: "SwiftUI"),
-                    .init(id: 1, title: "UIKit"),
-                    .init(id: 2, title: "Texture"),
-                ]
+    struct Constants {
+        
+        static let developer1: User = .init(id: 1, firstName: "Funky", lastName: "Tapir", avatarURL: URL(string: "https://i.pravatar.cc/40")!)
+        static let developer2: User = .init(id: 2, firstName: "Empty", lastName: "Cat", avatarURL: URL(string: "https://i.pravatar.cc/40")!)
+        static let developer3: User = .init(id: 3, firstName: "Crazy", lastName: "Frog", avatarURL: URL(string: "https://i.pravatar.cc/40")!)
+        
+        static let messages: [any Message] = [
+            TextMessage(
+                id: 0,
+                sender: developer1,
+                content: "Hello World!"
+            ),
+            TextMessage(
+                id: 1,
+                sender: developer2,
+                content: "Hello World!"
+            ),
+            TextMessage(
+                id: 2,
+                sender: developer3,
+                content: "Hello World!"
+            ),
+            PollMessage(
+                id: 3,
+                sender: developer1,
+                content: .init(
+                    title: "What technology we will choose?",
+                    selectedOptionId: nil,
+                    options: [
+                        .init(id: 0, title: "SwiftUI"),
+                        .init(id: 1, title: "UIKit"),
+                        .init(id: 2, title: "Texture"),
+                    ]
+                )
             )
-        )
-    ]
+        ]
+    }
 }
