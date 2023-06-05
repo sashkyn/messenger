@@ -42,6 +42,9 @@ final class MessagesScreenViewModel: ObservableObject {
 }
 
 struct MessagesScreenView: View {
+    
+    @State
+    var isPollCreatorPresented: Bool = false
 
     @ObservedObject
     var viewModel: MessagesScreenViewModel
@@ -76,12 +79,16 @@ struct MessagesScreenView: View {
                     MessageTextField(
                         text: $viewModel.textMessage,
                         onPoll: {
-                            print("TODO: open poll creation")
+                            isPollCreatorPresented = true
                         }, onSend: {
                             viewModel.send(text: viewModel.textMessage)
                         })
                 }
-            }.navigationTitle("Developers chat")
+            }
+            .navigationTitle("Developers chat")
+            .sheet(isPresented: $isPollCreatorPresented) {
+                PollCreatorScreen()
+            }
         }
     }
 }

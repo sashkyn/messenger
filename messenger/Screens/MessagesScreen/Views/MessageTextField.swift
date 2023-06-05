@@ -10,9 +10,7 @@ struct MessageTextField: View {
     
     var body: some View {
         HStack {
-            Button(action: {
-                print("TODO: open poll creation")
-            }) {
+            Button(action: { onPoll() }) {
                 Image(systemName: "square.and.arrow.up")
                     .font(.title)
                     .padding(8.0)

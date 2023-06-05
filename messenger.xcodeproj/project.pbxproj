@@ -19,6 +19,7 @@
 		E6ED6BE42A2C90650052611A /* TextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE32A2C90650052611A /* TextMessageView.swift */; };
 		E6ED6BE62A2C90750052611A /* PollMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE52A2C90750052611A /* PollMessageView.swift */; };
 		E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE72A2C94D30052611A /* MessageTextField.swift */; };
+		E6ED6BEA2A2D9C150052611A /* PollCreatorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E6ED6BE32A2C90650052611A /* TextMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageView.swift; sourceTree = "<group>"; };
 		E6ED6BE52A2C90750052611A /* PollMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollMessageView.swift; sourceTree = "<group>"; };
 		E6ED6BE72A2C94D30052611A /* MessageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextField.swift; sourceTree = "<group>"; };
+		E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreatorScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +116,7 @@
 		E6ED6BDF2A2C90220052611A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E6ED6BE12A2C903B0052611A /* PollCreationScreen */,
+				E6ED6BE12A2C903B0052611A /* PollCreatorScreen */,
 				E6ED6BE02A2C90370052611A /* MessagesScreen */,
 			);
 			path = Screens;
@@ -129,11 +131,12 @@
 			path = MessagesScreen;
 			sourceTree = "<group>";
 		};
-		E6ED6BE12A2C903B0052611A /* PollCreationScreen */ = {
+		E6ED6BE12A2C903B0052611A /* PollCreatorScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */,
 			);
-			path = PollCreationScreen;
+			path = PollCreatorScreen;
 			sourceTree = "<group>";
 		};
 		E6ED6BE22A2C904F0052611A /* Views */ = {
@@ -227,6 +230,7 @@
 				E652A8E82A28C9650010F621 /* MessageService.swift in Sources */,
 				E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */,
 				E652A8E12A28C8650010F621 /* Messages.swift in Sources */,
+				E6ED6BEA2A2D9C150052611A /* PollCreatorScreen.swift in Sources */,
 				E6A477772A284DA40024081F /* MessagesScreenView.swift in Sources */,
 				E652A8E52A28C9120010F621 /* User.swift in Sources */,
 				E6A477752A284DA40024081F /* MessengerApp.swift in Sources */,
