@@ -1,7 +1,5 @@
 import SwiftUI
 
-// TODO: сделать возможность выбора опции с колбеками
-
 // TODO: изменить шрифты и размеры
 // TODO: добавить градиент
 // TODO: добавить каунтер
@@ -9,6 +7,7 @@ import SwiftUI
 
 struct PollMessageView: View {
     let pollMessage: PollMessage
+    let onOption: (Int) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -21,7 +20,15 @@ struct PollMessageView: View {
                 .fontWeight(.bold)
             
             ForEach(pollMessage.content.options, id: \.id) { option in
-                PollOptionView(option: option, isSelected: option.id == pollMessage.content.selectedOptionId)
+                PollOptionView(
+                    option: option,
+                    isSelected: option.id == pollMessage.content.selectedOptionId
+                )
+                .onTapGesture {
+                    if option.id != pollMessage.content.selectedOptionId {
+                        onOption(option.id)
+                    }
+                }
             }
         }
         .padding()
@@ -36,10 +43,8 @@ struct PollOptionView: View {
         HStack {
             Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
                 .foregroundColor(isSelected ? .blue : .gray)
-            
             Text(option.title)
                 .font(.body)
-            
             Spacer()
         }
     }
@@ -61,7 +66,8 @@ struct PollMessageView_Previews: PreviewProvider {
                         .init(id: 2, title: "Texture"),
                     ]
                 )
-            )
+            ),
+            onOption: { id in print(id) }
         )
     }
 }

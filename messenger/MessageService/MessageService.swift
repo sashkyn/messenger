@@ -8,7 +8,7 @@ protocol MessageService: AnyObject {
     
     func send(text: String)
     func send(poll: Poll)
-    func select(pollOptionId: Int?, in pollMessageId: Int)
+    func select(pollOptionId: Int?, inPollMessageId: Int64)
 }
 
 final class MockMessageService: MessageService {
@@ -41,10 +41,14 @@ final class MockMessageService: MessageService {
         messagesSubject.send(messages + [pollMessage])
     }
     
-    func select(pollOptionId: Int?, in pollMessageId: Int) {
-        guard let pollMessage = messages.first(where: { message in message is PollMessage }),
-              let poll = pollMessage.content as? Poll else {
-            // TODO: обработка ошибок
+    func select(pollOptionId: Int?, inPollMessageId: Int64) {
+        guard let pollMessageIndex = messages.firstIndex(where: { message in message.id == inPollMessageId }) else {
+            return
+        }
+        
+        let pollMessage = messages[pollMessageIndex]
+    
+        guard let poll = pollMessage.content as? Poll else {
             return
         }
         
@@ -59,8 +63,7 @@ final class MockMessageService: MessageService {
             content: newContent
         )
         var newMessageArray = messages
-        newMessageArray.removeAll { message in message.id == pollMessage.id }
-        newMessageArray.append(newPollMessage)
+        newMessageArray[pollMessageIndex] = newPollMessage
         messagesSubject.send(newMessageArray)
     }
 }

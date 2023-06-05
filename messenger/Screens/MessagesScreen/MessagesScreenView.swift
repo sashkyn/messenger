@@ -35,6 +35,10 @@ final class MessagesScreenViewModel: ObservableObject {
         service.send(text: text)
         textMessage = ""
     }
+    
+    func select(pollOptionId: Int, inPollMessageId: Int64) {
+        service.select(pollOptionId: pollOptionId, inPollMessageId: inPollMessageId)
+    }
 }
 
 struct MessagesScreenView: View {
@@ -47,12 +51,20 @@ struct MessagesScreenView: View {
             ZStack {
                 ScrollView(.vertical) {
                     LazyVStack {
-                        ForEach(viewModel.messages, id: \.id) { item in
+                        ForEach(viewModel.messages, id: \.hashValue) { item in
                             switch item {
                             case let textMessage as TextMessage:
                                 TextMessageView(message: textMessage)
                             case let pollMessage as PollMessage:
-                                PollMessageView(pollMessage: pollMessage)
+                                PollMessageView(
+                                    pollMessage: pollMessage,
+                                    onOption: { optionId in
+                                        viewModel.select(
+                                            pollOptionId: optionId,
+                                            inPollMessageId: item.id
+                                        )
+                                    }
+                                )
                             default:
                                 Text("No supported message")
                             }
