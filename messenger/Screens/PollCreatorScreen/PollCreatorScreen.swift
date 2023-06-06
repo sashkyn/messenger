@@ -1,82 +1,91 @@
 import SwiftUI
+import Combine
 
 /// TODO logic:
 /// close - title create
-/// viewModel
 /// creation action
 /// logic from service
 /// limitation of enter text
-/// action delete option
 /// option - textfield with limitation
 
 /// TODO: Design:
 /// option - text with delete action
 
+final class PollCreatorScreenViewModel: ObservableObject {
+    
+    @Published
+    var question: String = ""
+    
+    @Published
+    var isAnonymousOption: Bool = false
+    
+    @Published
+    var optionViewModels: [PollEditOptionViewModel] = []
+    
+    @Published
+    var abilityToAddMoreOptions: Bool = false
+    
+    func appendPollOption() {
+        let viewModel = PollEditOptionViewModel(id: optionViewModels.count, text: "")
+        optionViewModels.append(viewModel)
+    }
+    
+    func removePollOption(optionId: Int) {
+        optionViewModels.removeAll(where: { $0.id == optionId })
+    }
+}
+
 struct PollCreatorScreen: View {
-    @State private var title: String = ""
-    @State private var options: [String] = []
-    @State private var isAnonymousOption: Bool = false
-    @State private var abilityToAddMoreOptions: Bool = false
+    
+    @ObservedObject
+    var viewModel: PollCreatorScreenViewModel
     
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    FormSection(title: "Question") {
-                        TextField("Ask a question", text: $title)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .overlay(
-                                Text("\(title.count)/50")
-                                    .foregroundColor(title.count > 50 ? .red : .primary)
-                                    .font(.caption)
-                                    .padding(.trailing, 8)
-                                , alignment: .trailing
-                            )
+                    Section(header: Text("Question")) {
+                        TextField("Ask a question", text: $viewModel.question)
                     }
                     
-                    FormSection(title: "Options") {
-                        ForEach(options, id: \.self) { option in
-                            Text(option)
+                    Section(header: Text("Options")) {
+                        ForEach($viewModel.optionViewModels) { optionViewModel in
+                            PollEditOptionView(
+                                viewModel: optionViewModel,
+                                onDelete: {
+                                    viewModel.removePollOption(optionId: optionViewModel.wrappedValue.id)
+                                }
+                            )
                         }
                         
-                        Button(action: addOption) {
+                        Button(action: viewModel.appendPollOption) {
                             Text("Add an option")
                                 .foregroundColor(.blue)
                         }
                     }
                     
-                    FormSection(title: "Switches") {
-                        Toggle("Anonymous voting", isOn: $isAnonymousOption)
-                        Toggle("Ability to add more options", isOn: $abilityToAddMoreOptions)
+                    Section(header: Text("Switches")) {
+                        Toggle(
+                            "Anonymous voting",
+                            isOn: $viewModel.isAnonymousOption
+                        )
+                        Toggle(
+                            "Ability to add more options",
+                            isOn: $viewModel.abilityToAddMoreOptions
+                        )
                     }
                 }
-            }.navigationTitle("Create poll")
-        }
-    }
-    
-    func addOption() {
-        options.append("Option \(options.count + 1)")
-    }
-}
-
-struct FormSection<Content: View>: View {
-    let title: String
-    let content: Content
-    
-    init(title: String, @ViewBuilder content: () -> Content) {
-        self.title = title
-        self.content = content()
-    }
-    
-    var body: some View {
-        Section(header: Text(title)) {
-            content
+            }
+            .navigationTitle("Create poll")
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        PollCreatorScreen()
+        PollCreatorScreen(
+            viewModel: PollCreatorScreenViewModel()
+        )
     }
 }

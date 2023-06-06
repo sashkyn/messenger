@@ -87,7 +87,7 @@ struct MessagesScreenView: View {
             }
             .navigationTitle("Developers chat")
             .sheet(isPresented: $isPollCreatorPresented) {
-                PollCreatorScreen()
+                PollCreatorScreen(viewModel: PollCreatorScreenViewModel())
             }
         }
     }
