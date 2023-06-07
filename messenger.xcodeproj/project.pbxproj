@@ -21,7 +21,6 @@
 		E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE72A2C94D30052611A /* MessageTextField.swift */; };
 		E6ED6BEA2A2D9C150052611A /* PollCreatorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */; };
 		E6ED6BED2A2F282B0052611A /* PollEditOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BEC2A2F282B0052611A /* PollEditOptionView.swift */; };
-		E6ED6BF02A2F36B60052611A /* RemoveFocusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BEF2A2F36B60052611A /* RemoveFocusModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,7 +38,6 @@
 		E6ED6BE72A2C94D30052611A /* MessageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTextField.swift; sourceTree = "<group>"; };
 		E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreatorScreen.swift; sourceTree = "<group>"; };
 		E6ED6BEC2A2F282B0052611A /* PollEditOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollEditOptionView.swift; sourceTree = "<group>"; };
-		E6ED6BEF2A2F36B60052611A /* RemoveFocusModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFocusModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +164,6 @@
 		E6ED6BEE2A2F36A60052611A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E6ED6BEF2A2F36B60052611A /* RemoveFocusModifier.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,7 +253,6 @@
 				E6ED6BEA2A2D9C150052611A /* PollCreatorScreen.swift in Sources */,
 				E6A477772A284DA40024081F /* MessagesScreenView.swift in Sources */,
 				E652A8E52A28C9120010F621 /* User.swift in Sources */,
-				E6ED6BF02A2F36B60052611A /* RemoveFocusModifier.swift in Sources */,
 				E6A477752A284DA40024081F /* MessengerApp.swift in Sources */,
 				E6ED6BE62A2C90750052611A /* PollMessageView.swift in Sources */,
 			);

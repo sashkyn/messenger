@@ -3,7 +3,6 @@ import Combine
 
 /// TODO logic:
 /// close - title create
-/// creation action
 /// logic from service
 /// limitation of enter text
 /// option - textfield with limitation
@@ -13,17 +12,20 @@ import Combine
 
 final class PollCreatorScreenViewModel: ObservableObject {
     
-    @Published
-    var question: String = ""
+    @Published var question: String = ""
+    @Published var optionViewModels: [PollEditOptionViewModel] = []
+    @Published var isAnonymousOption: Bool = false
+    @Published var abilityToAddMoreOptions: Bool = false
     
-    @Published
-    var isAnonymousOption: Bool = false
+    var createButtonEnabled: Bool {
+        !optionViewModels.isEmpty && !question.isEmpty
+    }
     
-    @Published
-    var optionViewModels: [PollEditOptionViewModel] = []
+    private let service: MessageService
     
-    @Published
-    var abilityToAddMoreOptions: Bool = false
+    init(service: MessageService) {
+        self.service = service
+    }
     
     func appendPollOption() {
         let viewModel = PollEditOptionViewModel(id: optionViewModels.count, text: "")
@@ -33,12 +35,22 @@ final class PollCreatorScreenViewModel: ObservableObject {
     func removePollOption(optionId: Int) {
         optionViewModels.removeAll(where: { $0.id == optionId })
     }
+    
+    func createPoll() {
+        service.send(
+            poll: Poll(
+                title: question,
+                selectedOptionId: nil,
+                options: optionViewModels.map { PollOption(id: $0.id, text: $0.text) }
+            )
+        )
+    }
 }
 
 struct PollCreatorScreen: View {
     
-    @ObservedObject
-    var viewModel: PollCreatorScreenViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @ObservedObject var viewModel: PollCreatorScreenViewModel
     
     var body: some View {
         NavigationView {
@@ -76,7 +88,18 @@ struct PollCreatorScreen: View {
                     }
                 }
             }
-            .navigationTitle("Create poll")
+            .navigationTitle("New poll")
+            .navigationBarItems(
+                trailing: Button(
+                    action: {
+                        viewModel.createPoll()
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                ) {
+                    Text("Create")
+                }
+                    .disabled(!viewModel.createButtonEnabled)
+            )
         }
     }
 }
@@ -85,7 +108,9 @@ struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
         PollCreatorScreen(
-            viewModel: PollCreatorScreenViewModel()
+            viewModel: PollCreatorScreenViewModel(
+                service: MockMessageService()
+            )
         )
     }
 }

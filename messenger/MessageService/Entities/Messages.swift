@@ -32,5 +32,5 @@ struct Poll: Hashable {
 
 struct PollOption: Hashable {
     let id: Int
-    let title: String
+    let text: String
 }

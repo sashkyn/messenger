@@ -99,9 +99,9 @@ extension MockMessageService {
                     title: "What technology we will choose?",
                     selectedOptionId: nil,
                     options: [
-                        .init(id: 0, title: "SwiftUI"),
-                        .init(id: 1, title: "UIKit"),
-                        .init(id: 2, title: "Texture"),
+                        .init(id: 0, text: "SwiftUI"),
+                        .init(id: 1, text: "UIKit"),
+                        .init(id: 2, text: "Texture"),
                     ]
                 )
             )

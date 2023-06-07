@@ -5,6 +5,7 @@ import URLImage
 // TODO: добавить энум с картинками SFSymbols
 // TODO: сделать изменение контента не по id а по Content
 // TODO: добавить экран с созданием полл-а
+// TODO: убрать сервис в контейнер
 
 // TODO: кастомный апп бар
 // TODO: скролить в самый низ всегда
@@ -21,7 +22,7 @@ final class MessagesScreenViewModel: ObservableObject {
     @Published
     var messages: [any Message] = []
     
-    private let service: MessageService
+    let service: MessageService
     private var cancellable: AnyCancellable?
     
     init(service: MessageService) {
@@ -37,7 +38,10 @@ final class MessagesScreenViewModel: ObservableObject {
     }
     
     func select(pollOptionId: Int, inPollMessageId: Int64) {
-        service.select(pollOptionId: pollOptionId, inPollMessageId: inPollMessageId)
+        service.select(
+            pollOptionId: pollOptionId,
+            inPollMessageId: inPollMessageId
+        )
     }
 }
 
@@ -80,14 +84,19 @@ struct MessagesScreenView: View {
                         text: $viewModel.textMessage,
                         onPoll: {
                             isPollCreatorPresented = true
-                        }, onSend: {
+                        },
+                        onSend: {
                             viewModel.send(text: viewModel.textMessage)
                         })
                 }
             }
             .navigationTitle("Developers chat")
             .sheet(isPresented: $isPollCreatorPresented) {
-                PollCreatorScreen(viewModel: PollCreatorScreenViewModel())
+                PollCreatorScreen(
+                    viewModel: PollCreatorScreenViewModel(
+                        service: viewModel.service
+                    )
+                )
             }
         }
     }
