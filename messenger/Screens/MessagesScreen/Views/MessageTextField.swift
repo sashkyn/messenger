@@ -2,8 +2,11 @@ import SwiftUI
 import SFSafeSymbols
 
 /// TODO:
-/// убрать боттом оффасет для не safe area девайсов
+/// убрать боттом оффсет для не safe area девайсов
 /// multiline
+///
+/// Design:
+///
 
 struct MessageTextField: View {
     

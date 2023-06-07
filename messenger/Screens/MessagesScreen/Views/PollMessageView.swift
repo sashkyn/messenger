@@ -1,9 +1,13 @@
 import SwiftUI
 
-// TODO: изменить шрифты и размеры
-// TODO: добавить градиент
-// TODO: добавить каунтер
-// TODO: добавить линии
+/// TODO:
+/// изменить шрифты и размеры
+/// добавить градиент
+/// добавить каунтер
+/// добавить линии
+///
+/// Design:
+/// 
 
 struct PollMessageView: View {
     let pollMessage: PollMessage

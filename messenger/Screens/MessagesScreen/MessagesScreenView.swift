@@ -2,17 +2,20 @@ import SwiftUI
 import Combine
 import URLImage
 
-// TODO: убрать сервис в контейнер
-
-// TODO: кастомный апп бар
-// TODO: скролить в самый низ всегда
-// TODO: закешировать картинки
-// TODO: статичные аватарки которые загружены один раз
-// TODO: обрамить debug preview штуки
+/// TODO:
+/// убрать сервис в контейнер
+/// добавить боттом сдвиг контента чтобы text field не перекрывал сообщения
+/// скролить в самый низ всегда
+///
+/// Design:
+/// кастомный апп бар
+/// закешировать картинки
+/// статичные аватарки которые загружены один раз
+/// обрамить debug preview штуки
 
 final class MessagesScreenViewModel: ObservableObject {
     
-    @Published var textMessage: String = ""
+    var textMessage: String = ""
     @Published var messages: [any Message] = []
     
     let service: MessageService

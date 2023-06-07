@@ -2,19 +2,21 @@ import SwiftUI
 import Combine
 
 /// TODO logic:
-/// limitation of enter text
-/// option - textfield with limitation
+///
+/// Design:
+/// 
 
 final class PollCreatorScreenViewModel: ObservableObject {
     
     @Published var question: String = ""
     @Published var optionViewModels: [PollEditOptionViewModel] = []
-    @Published var isAnonymousOption: Bool = false
-    @Published var abilityToAddMoreOptions: Bool = false
-    
-    var createButtonEnabled: Bool {
-        !optionViewModels.isEmpty && !question.isEmpty
-    }
+    var isAnonymousOption: Bool = false
+    var abilityToAddMoreOptions: Bool = false
+    var createButtonEnabled: Bool { !optionViewModels.isEmpty && !question.isEmpty }
+    var questionLimitTitle: String { "\(question.count) / \(Constants.maxTitleSymbolCount)" }
+    var questionLimitEnabled: Bool { question.count > Constants.maxTitleSymbolCount }
+    var optionLimitTitle: String { "\(optionViewModels.count) / \(Constants.maxOptionCount)" }
+    var optionLimitEnabled: Bool { optionViewModels.count >= Constants.maxOptionCount }
     
     private let service: MessageService
     
@@ -51,11 +53,28 @@ struct PollCreatorScreen: View {
         NavigationView {
             VStack {
                 Form {
-                    Section(header: Text("Question")) {
-                        TextField("Ask a question", text: $viewModel.question)
+                    Section(
+                        header: HStack {
+                            Text("Question")
+                            Spacer()
+                            Text(viewModel.questionLimitTitle)
+                        }
+                    ) {
+                        TextField(
+                            "Ask a question",
+                            text: $viewModel.question.allowing(
+                                predicate: { text in viewModel.questionLimitEnabled }
+                            )
+                        )
                     }
                     
-                    Section(header: Text("Options")) {
+                    Section(
+                        header: HStack {
+                            Text("Options")
+                            Spacer()
+                            Text(viewModel.optionLimitTitle)
+                        }
+                    ) {
                         ForEach($viewModel.optionViewModels) { optionViewModel in
                             PollEditOptionView(
                                 viewModel: optionViewModel,
@@ -67,8 +86,8 @@ struct PollCreatorScreen: View {
                         
                         Button(action: viewModel.appendPollOption) {
                             Text("Add an option")
-                                .foregroundColor(.blue)
                         }
+                            .disabled(viewModel.optionLimitEnabled)
                     }
                     
                     Section(header: Text("Switches")) {
@@ -106,6 +125,8 @@ struct PollCreatorScreen: View {
     }
 }
 
+// MARK: Preview
+
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
@@ -115,4 +136,12 @@ struct ContentView_Previews: PreviewProvider {
             )
         )
     }
+}
+
+// MARK: Constants
+
+private struct Constants {
+    
+    static let maxTitleSymbolCount: Int = 50
+    static let maxOptionCount: Int = 8
 }

@@ -96,7 +96,7 @@ extension MockMessageService {
                 id: 3,
                 sender: developer1,
                 content: .init(
-                    title: "What technology we will choose?",
+                    title: "What technology will we choose?",
                     selectedOptionId: nil,
                     options: [
                         .init(id: 0, text: "SwiftUI"),
