@@ -14,6 +14,7 @@
 		E6A477772A284DA40024081F /* MessagesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477762A284DA40024081F /* MessagesScreenView.swift */; };
 		E6A477792A284DA40024081F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A477782A284DA40024081F /* Assets.xcassets */; };
 		E6A4777C2A284DA40024081F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A4777B2A284DA40024081F /* Preview Assets.xcassets */; };
+		E6B8489D2A309BE50080D447 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = E6B8489C2A309BE50080D447 /* SFSafeSymbols */; };
 		E6ED6BDB2A2C8E610052611A /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = E6ED6BDA2A2C8E610052611A /* URLImage */; };
 		E6ED6BDE2A2C8EB70052611A /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BDD2A2C8EB70052611A /* User+Extensions.swift */; };
 		E6ED6BE42A2C90650052611A /* TextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE32A2C90650052611A /* TextMessageView.swift */; };
@@ -45,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6B8489D2A309BE50080D447 /* SFSafeSymbols in Frameworks */,
 				E6ED6BDB2A2C8E610052611A /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,7 +93,6 @@
 			children = (
 				E6ED6BEE2A2F36A60052611A /* Helpers */,
 				E6ED6BDF2A2C90220052611A /* Screens */,
-				E6ED6BDC2A2C8EA40052611A /* Extensions */,
 				E652A8DE2A28C83F0010F621 /* MessageService */,
 				E6A477742A284DA40024081F /* MessengerApp.swift */,
 				E6A477782A284DA40024081F /* Assets.xcassets */,
@@ -164,6 +165,7 @@
 		E6ED6BEE2A2F36A60052611A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E6ED6BDC2A2C8EA40052611A /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -186,6 +188,7 @@
 			name = messenger;
 			packageProductDependencies = (
 				E6ED6BDA2A2C8E610052611A /* URLImage */,
+				E6B8489C2A309BE50080D447 /* SFSafeSymbols */,
 			);
 			productName = messenger;
 			productReference = E6A477712A284DA40024081F /* messenger.app */;
@@ -217,6 +220,7 @@
 			mainGroup = E6A477682A284DA40024081F;
 			packageReferences = (
 				E6ED6BD92A2C8E610052611A /* XCRemoteSwiftPackageReference "url-image" */,
+				E6B8489B2A309BE50080D447 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = E6A477722A284DA40024081F /* Products */;
 			projectDirPath = "";
@@ -459,6 +463,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E6B8489B2A309BE50080D447 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		E6ED6BD92A2C8E610052611A /* XCRemoteSwiftPackageReference "url-image" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
@@ -470,6 +482,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E6B8489C2A309BE50080D447 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6B8489B2A309BE50080D447 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
+		};
 		E6ED6BDA2A2C8E610052611A /* URLImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E6ED6BD92A2C8E610052611A /* XCRemoteSwiftPackageReference "url-image" */;

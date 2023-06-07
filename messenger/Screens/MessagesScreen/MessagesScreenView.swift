@@ -2,25 +2,18 @@ import SwiftUI
 import Combine
 import URLImage
 
-// TODO: добавить энум с картинками SFSymbols
-// TODO: сделать изменение контента не по id а по Content
-// TODO: добавить экран с созданием полл-а
 // TODO: убрать сервис в контейнер
 
 // TODO: кастомный апп бар
 // TODO: скролить в самый низ всегда
 // TODO: закешировать картинки
-// TODO: добавить паддинг снизу
 // TODO: статичные аватарки которые загружены один раз
 // TODO: обрамить debug preview штуки
 
 final class MessagesScreenViewModel: ObservableObject {
     
-    @Published
-    var textMessage: String = ""
-    
-    @Published
-    var messages: [any Message] = []
+    @Published var textMessage: String = ""
+    @Published var messages: [any Message] = []
     
     let service: MessageService
     private var cancellable: AnyCancellable?
@@ -82,14 +75,16 @@ struct MessagesScreenView: View {
                     Spacer()
                     MessageTextField(
                         text: $viewModel.textMessage,
-                        onPoll: {
+                        onLeadingAction: {
                             isPollCreatorPresented = true
                         },
-                        onSend: {
+                        onTrailingAction: {
                             viewModel.send(text: viewModel.textMessage)
-                        })
+                        }
+                    )
                 }
             }
+            .edgesIgnoringSafeArea(.bottom)
             .navigationTitle("Developers chat")
             .sheet(isPresented: $isPollCreatorPresented) {
                 PollCreatorScreen(

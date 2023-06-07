@@ -2,13 +2,8 @@ import SwiftUI
 import Combine
 
 /// TODO logic:
-/// close - title create
-/// logic from service
 /// limitation of enter text
 /// option - textfield with limitation
-
-/// TODO: Design:
-/// option - text with delete action
 
 final class PollCreatorScreenViewModel: ObservableObject {
     
@@ -90,6 +85,13 @@ struct PollCreatorScreen: View {
             }
             .navigationTitle("New poll")
             .navigationBarItems(
+                leading: Button(
+                    action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                ) {
+                    Image(systemName: "xmark.circle.fill")
+                },
                 trailing: Button(
                     action: {
                         viewModel.createPoll()

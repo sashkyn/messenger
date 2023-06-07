@@ -1,31 +1,41 @@
 import SwiftUI
+import SFSafeSymbols
 
-// TODO: добавить белый бекграунд
+/// TODO:
+/// убрать боттом оффасет для не safe area девайсов
+/// multiline
 
 struct MessageTextField: View {
     
     let text: Binding<String>
-    let onPoll: () -> Void
-    let onSend: () -> Void
+    let onLeadingAction: () -> Void
+    let onTrailingAction: () -> Void
     
     var body: some View {
-        HStack {
-            Button(action: { onPoll() }) {
-                Image(systemName: "square.and.arrow.up")
-                    .font(.title)
-                    .padding(8.0)
-            }
-            TextField("Message", text: text)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-            Button(
-                action: {
-                    onSend()
+        ZStack {
+            HStack {
+                Button(action: { onLeadingAction() }) {
+                    Image(systemSymbol: .squareAndArrowUp)
+                        .font(.title2)
+                        .foregroundColor(.blue)
                 }
-            ) {
-                Image(systemName: "square.and.arrow.up")
-                    .font(.title)
-                    .padding(8.0)
+                TextField("Message", text: text)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button(
+                    action: {
+                        onTrailingAction()
+                    }
+                ) {
+                    Image(systemSymbol: .squareAndArrowUp)
+                        .font(.title2)
+                        .foregroundColor(.blue)
+                }
             }
+                .padding(.top, 12.0)
+                .padding(.leading, 8.0)
+                .padding(.trailing, 8.0)
+                .padding(.bottom, 32.0)
         }
+        .background(Color.white)
     }
 }
