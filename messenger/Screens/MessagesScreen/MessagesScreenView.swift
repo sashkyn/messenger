@@ -3,9 +3,9 @@ import Combine
 import URLImage
 
 /// TODO:
+///
+/// !!! добавить боттом сдвиг контента чтобы text field не перекрывал сообщения
 /// убрать сервис в контейнер
-/// добавить боттом сдвиг контента чтобы text field не перекрывал сообщения
-/// скролить в самый низ всегда
 ///
 /// Design:
 /// кастомный апп бар
@@ -15,7 +15,7 @@ import URLImage
 
 final class MessagesScreenViewModel: ObservableObject {
     
-    var textMessage: String = ""
+    @Published var textMessage: String = ""
     @Published var messages: [any Message] = []
     
     let service: MessageService
@@ -52,24 +52,34 @@ struct MessagesScreenView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                ScrollView(.vertical) {
-                    LazyVStack {
-                        ForEach(viewModel.messages, id: \.hashValue) { item in
-                            switch item {
-                            case let textMessage as TextMessage:
-                                TextMessageView(message: textMessage)
-                            case let pollMessage as PollMessage:
-                                PollMessageView(
-                                    pollMessage: pollMessage,
-                                    onOption: { optionId in
-                                        viewModel.select(
-                                            pollOptionId: optionId,
-                                            inPollMessageId: item.id
-                                        )
-                                    }
-                                )
-                            default:
-                                Text("No supported message")
+                ScrollViewReader { scrollViewProxy in
+                    ScrollView(.vertical) {
+                        LazyVStack {
+                            ForEach(viewModel.messages, id: \.id) { message in
+                                switch message {
+                                case let textMessage as TextMessage:
+                                    TextMessageView(message: textMessage)
+                                case let pollMessage as PollMessage:
+                                    PollMessageView(
+                                        pollMessage: pollMessage,
+                                        onOption: { optionId in
+                                            viewModel.select(
+                                                pollOptionId: optionId,
+                                                inPollMessageId: message.id
+                                            )
+                                        }
+                                    )
+                                default:
+                                    let notSupportedTextMessage = TextMessage(
+                                        id: message.id,
+                                        sender: message.sender,
+                                        content: "No supported message"
+                                    )
+                                    TextMessageView(message: notSupportedTextMessage)
+                                }
+                            }
+                            .onChange(of: viewModel.messages.count) { _ in
+                                scrollViewProxy.scrollTo(viewModel.messages.last?.id ?? 0)
                             }
                         }
                     }

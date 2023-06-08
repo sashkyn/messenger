@@ -39,7 +39,12 @@ struct TextMessageView_Previews: PreviewProvider {
             message: TextMessage(
                 id: 0,
                 sender: MockMessageService.Constants.developer1,
-                content: "Hello World!"
+                content: """
+                Hello World! asdgsdg asdg asd gjasd;lg hasdlkg hasdlkg hasd;lg
+                hasdlg hadslg hadslgk jadslg kjadhsl gkasd
+                asdgasdgasdgasdg asd
+                asdg asdg asdg asdgasdgasdg
+                """
             )
         )
     }

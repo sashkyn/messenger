@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Message<Content>: Hashable {
+protocol Message<Content>: Hashable, Identifiable {
     associatedtype Content: Hashable
     
     var id: Int64 { get }

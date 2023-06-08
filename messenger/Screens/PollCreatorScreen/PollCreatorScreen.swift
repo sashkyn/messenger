@@ -140,8 +140,10 @@ struct ContentView_Previews: PreviewProvider {
 
 // MARK: Constants
 
-private struct Constants {
+private extension PollCreatorScreenViewModel {
     
-    static let maxTitleSymbolCount: Int = 50
-    static let maxOptionCount: Int = 8
+    struct Constants {
+        static let maxTitleSymbolCount: Int = 50
+        static let maxOptionCount: Int = 8
+    }
 }
