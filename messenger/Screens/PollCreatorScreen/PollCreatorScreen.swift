@@ -1,11 +1,6 @@
 import SwiftUI
 import Combine
 
-/// TODO logic:
-///
-/// Design:
-/// 
-
 final class PollCreatorScreenViewModel: ObservableObject {
     
     @Published var question: String = ""
@@ -102,24 +97,16 @@ struct PollCreatorScreen: View {
                     }
                 }
             }
-            .navigationTitle("New poll")
-            .navigationBarItems(
-                leading: Button(
-                    action: {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                ) {
-                    Image(systemName: "xmark.circle.fill")
-                },
-                trailing: Button(
-                    action: {
-                        viewModel.createPoll()
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                ) {
-                    Text("Create")
+            .modalAppBar(
+                title: "New poll",
+                trailingTitle: "Create",
+                onTrailingAction: viewModel.createButtonEnabled ? {
+                    viewModel.createPoll()
+                    presentationMode.wrappedValue.dismiss()
+                } : nil,
+                onClose: {
+                    presentationMode.wrappedValue.dismiss()
                 }
-                    .disabled(!viewModel.createButtonEnabled)
             )
         }
     }

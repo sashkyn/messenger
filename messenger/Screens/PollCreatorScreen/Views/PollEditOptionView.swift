@@ -11,8 +11,7 @@ struct PollEditOptionViewModel: Identifiable {
 
 struct PollEditOptionView: View {
     
-    @Binding
-    var viewModel: PollEditOptionViewModel
+    @Binding var viewModel: PollEditOptionViewModel
     
     let onDelete: () -> Void
     

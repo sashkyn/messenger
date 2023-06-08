@@ -13,7 +13,7 @@ import URLImage
 /// статичные аватарки которые загружены один раз
 /// обрамить debug preview штуки
 
-final class MessagesScreenViewModel: ObservableObject {
+final class MessageListScreenViewModel: ObservableObject {
     
     @Published var textMessage: String = ""
     @Published var messages: [any Message] = []
@@ -41,13 +41,13 @@ final class MessagesScreenViewModel: ObservableObject {
     }
 }
 
-struct MessagesScreenView: View {
+struct MessageListScreenView: View {
     
     @State
     var isPollCreatorPresented: Bool = false
 
     @ObservedObject
-    var viewModel: MessagesScreenViewModel
+    var viewModel: MessageListScreenViewModel
 
     var body: some View {
         NavigationView {
@@ -83,6 +83,7 @@ struct MessagesScreenView: View {
                             }
                         }
                     }
+                    .background(LKColors.x14131B)
                 }
                 VStack {
                     Spacer()
@@ -98,7 +99,11 @@ struct MessagesScreenView: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
-            .navigationTitle("Developers chat")
+            .messageListAppBar(
+                title: "LowKey Squad",
+                subtitle: "1 member • 1 online",
+                onClose: {}
+            )
             .sheet(isPresented: $isPollCreatorPresented) {
                 PollCreatorScreen(
                     viewModel: PollCreatorScreenViewModel(
@@ -113,8 +118,8 @@ struct MessagesScreenView: View {
 struct MessagesScreenView_Previews: PreviewProvider {
     
     static var previews: some View {
-        MessagesScreenView(
-            viewModel: MessagesScreenViewModel(
+        MessageListScreenView(
+            viewModel: MessageListScreenViewModel(
                 service: MockMessageService()
             )
         )

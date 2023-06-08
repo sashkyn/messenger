@@ -9,23 +9,17 @@ struct TextMessageView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            URLImage(message.sender.avatarURL) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40, height: 40)
-                    .padding(.trailing, 10)
-            }
+            AvatarView(user: message.sender)
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 4.0) {
                 Text(message.sender.fullName)
-                    .font(.headline)
-                    .foregroundColor(.blue)
+                    .font(.system(size: 12.0))
+                    .foregroundColor(LKColors.x7E7A9A)
                 Text(message.content)
                     .font(.body)
-                    .foregroundColor(.black)
+                    .font(.system(size: 15.0))
+                    .foregroundColor(LKColors.xFEFEFE)
             }
-            
             Spacer()
         }
         .padding()
@@ -46,6 +40,20 @@ struct TextMessageView_Previews: PreviewProvider {
                 asdg asdg asdg asdgasdgasdg
                 """
             )
-        )
+        ).background(LKColors.x14131B)
+    }
+}
+
+struct AvatarView: View {
+    
+    let user: User
+    
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(LKColors.x03114398)
+                .frame(width: 16 * 2, height: 16 * 2)
+            Text(user.firstName.prefix(1))
+        }
     }
 }
