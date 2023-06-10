@@ -1,6 +1,8 @@
 import SwiftUI
 import UIKit
 
+// MARK: Color + HEX init
+
 extension Color {
     
     init(hex: Int, opacity: Double = 1.0) {
@@ -10,6 +12,8 @@ extension Color {
         self.init(.sRGB, red: red, green: green, blue: blue, opacity: opacity)
     }
 }
+
+// MARK: Color + Map to UIColor
 
 extension Color {
     

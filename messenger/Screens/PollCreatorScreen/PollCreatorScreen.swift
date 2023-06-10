@@ -57,7 +57,7 @@ struct PollCreatorScreen: View {
                     ) {
                         TextField(
                             "Ask a question",
-                            text: $viewModel.question.allowing(
+                            text: $viewModel.question.limitedSet(
                                 predicate: { text in viewModel.questionLimitEnabled }
                             )
                         )

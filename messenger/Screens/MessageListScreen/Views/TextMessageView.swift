@@ -3,6 +3,7 @@ import URLImage
 
 // TODO: изменить шрифты и размеры
 // TODO: закруглить аватарку
+// TODO: сделать картинку рандомного цвета
 
 struct TextMessageView: View {
     let message: TextMessage
@@ -13,11 +14,10 @@ struct TextMessageView: View {
             
             VStack(alignment: .leading, spacing: 4.0) {
                 Text(message.sender.fullName)
-                    .font(.system(size: 12.0))
+                    .font(.poppins(type: .regular, size: 12.0))
                     .foregroundColor(LKColors.x7E7A9A)
                 Text(message.content)
-                    .font(.body)
-                    .font(.system(size: 15.0))
+                    .font(.poppins(type: .regular, size: 15.0))
                     .foregroundColor(LKColors.xFEFEFE)
             }
             Spacer()
@@ -51,7 +51,7 @@ struct AvatarView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(LKColors.x03114398)
+                .fill(user.avatarColor)
                 .frame(width: 16 * 2, height: 16 * 2)
             Text(user.firstName.prefix(1))
         }

@@ -16,12 +16,11 @@ struct PollMessageView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(pollMessage.sender.fullName)
-                .font(.headline)
+                .font(.poppins(type: .regular, size: 15.0))
                 .foregroundColor(.blue)
             
             Text(pollMessage.content.title)
-                .font(.title)
-                .fontWeight(.bold)
+                .font(.poppins(type: .bold, size: 14.0))
             
             ForEach(pollMessage.content.options, id: \.id) { option in
                 PollOptionView(
@@ -73,5 +72,6 @@ struct PollMessageView_Previews: PreviewProvider {
             ),
             onOption: { id in print(id) }
         )
+        .background(LKColors.x14131B)
     }
 }

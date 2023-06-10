@@ -2,6 +2,8 @@ import SwiftUI
 
 // TODO: сделать конструируемый NavigationBar
 
+// MARK: View + AppBar
+
 extension View {
     
     func messageListAppBar(
@@ -15,9 +17,9 @@ extension View {
             .toolbar(content: {
                 ToolbarItem(placement: .principal) {
                     VStack {
-                        Text(title).font(.body.bold())
+                        Text(title).font(.poppins(type: .bold, size: 16))
                             .foregroundColor(LKColors.xFEFEFE)
-                        Text(subtitle).font(.caption2)
+                        Text(subtitle).font(.poppins(type: .regular, size: 12))
                             .foregroundColor(LKColors.xFEFEFE)
                     }
                 }
@@ -45,7 +47,7 @@ extension View {
             .toolbar(content: {
                 ToolbarItem(placement: .principal) {
                     VStack {
-                        Text(title).font(.body.bold())
+                        Text(title).font(.poppins(type: .bold, size: 16))
                             .foregroundColor(LKColors.xFEFEFE)
                     }
                 }

@@ -1,8 +1,10 @@
 import SwiftUI
 
+// MARK: Binding + limited set
+
 extension Binding {
     
-    func allowing(predicate: @escaping (Value) -> Bool) -> Self {
+    func limitedSet(predicate: @escaping (Value) -> Bool) -> Self {
         Binding(
             get: { wrappedValue },
             set: { newValue in
