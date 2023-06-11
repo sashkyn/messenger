@@ -105,7 +105,7 @@ struct PollMessageView_Previews: PreviewProvider {
                     userAnswers: [:]
                 )
             ),
-            onOption: { id in print(id) }
+            onOption: { _ in return }
         )
         .background(LKColors.x14131B)
     }

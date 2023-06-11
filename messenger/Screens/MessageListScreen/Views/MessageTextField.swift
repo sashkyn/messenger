@@ -5,8 +5,6 @@ import SFSafeSymbols
 /// убрать боттом оффсет для не safe area девайсов
 /// multiline
 ///
-/// Design:
-///
 
 struct MessageTextField: View {
     
@@ -18,27 +16,55 @@ struct MessageTextField: View {
         ZStack {
             HStack {
                 Button(action: { onLeadingAction() }) {
-                    Image(systemSymbol: .squareAndArrowUp)
+                    Image(systemSymbol: .cubeFill)
                         .font(.title2)
-                        .foregroundColor(.blue)
+                        .foregroundColor(LKColors.xFEFEFE)
                 }
-                TextField("Message", text: text)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                ZStack(alignment: .leading) {
+                    TextEditor(text: text)
+                        .font(.poppins(type: .regular, size: 15.0))
+                        .transparentScrolling()
+                        .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                        .background(LKColors.x2E2C3C)
+                        .cornerRadius(10.0)
+                        .foregroundColor(LKColors.xFEFEFE)
+                        .frame(height: 40, alignment: .leading)
+                    if text.wrappedValue.isEmpty {
+                        Text("Message")
+                            .font(.poppins(type: .regular, size: 15.0))
+                            .background(LKColors.x2E2C3C)
+                            .foregroundColor(LKColors.x7E7A9A)
+                            .padding(.leading, 8)
+                            .padding(.trailing, 8)
+                    }
+                }
+                
                 Button(
                     action: {
                         onTrailingAction()
                     }
                 ) {
-                    Image(systemSymbol: .squareAndArrowUp)
+                    Image(systemSymbol: .recordCircle)
                         .font(.title2)
-                        .foregroundColor(.blue)
+                        .foregroundColor(LKColors.xFEFEFE)
                 }
             }
                 .padding(.top, 12.0)
                 .padding(.leading, 8.0)
                 .padding(.trailing, 8.0)
                 .padding(.bottom, 32.0)
+                .background(LKColors.x14131B)
         }
-        .background(Color.white)
+    }
+}
+
+struct MessageTextField_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        MessageTextField(
+            text: .constant("Text with message"),
+            onLeadingAction: { },
+            onTrailingAction: { }
+        )
     }
 }
