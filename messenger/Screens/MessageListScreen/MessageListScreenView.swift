@@ -61,7 +61,7 @@ struct MessageListScreenView: View {
                                     TextMessageView(message: textMessage)
                                 case let pollMessage as PollMessage:
                                     PollMessageView(
-                                        pollMessage: pollMessage,
+                                        message: pollMessage,
                                         onOption: { optionId in
                                             viewModel.select(
                                                 pollOptionId: optionId,

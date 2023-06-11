@@ -1,10 +1,6 @@
 import SwiftUI
 import URLImage
 
-// TODO: изменить шрифты и размеры
-// TODO: закруглить аватарку
-// TODO: сделать картинку рандомного цвета
-
 struct TextMessageView: View {
     let message: TextMessage
     
@@ -12,9 +8,9 @@ struct TextMessageView: View {
         HStack(alignment: .top) {
             AvatarView(user: message.sender)
             
-            VStack(alignment: .leading, spacing: 4.0) {
+            VStack(alignment: .leading) {
                 Text(message.sender.fullName)
-                    .font(.poppins(type: .regular, size: 12.0))
+                    .font(.poppins(type: .semibold, size: 12.0))
                     .foregroundColor(LKColors.x7E7A9A)
                 Text(message.content)
                     .font(.poppins(type: .regular, size: 15.0))
@@ -41,19 +37,5 @@ struct TextMessageView_Previews: PreviewProvider {
                 """
             )
         ).background(LKColors.x14131B)
-    }
-}
-
-struct AvatarView: View {
-    
-    let user: User
-    
-    var body: some View {
-        ZStack {
-            Circle()
-                .fill(user.avatarColor)
-                .frame(width: 16 * 2, height: 16 * 2)
-            Text(user.firstName.prefix(1))
-        }
     }
 }

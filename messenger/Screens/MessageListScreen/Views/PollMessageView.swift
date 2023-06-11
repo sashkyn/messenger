@@ -1,40 +1,60 @@
 import SwiftUI
 
 /// TODO:
-/// изменить шрифты и размеры
-/// добавить градиент
 /// добавить каунтер
-/// добавить линии
-///
-/// Design:
-/// 
 
 struct PollMessageView: View {
-    let pollMessage: PollMessage
+    let message: PollMessage
     let onOption: (Int) -> Void
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text(pollMessage.sender.fullName)
-                .font(.poppins(type: .regular, size: 15.0))
-                .foregroundColor(.blue)
+        VStack(alignment: .leading) {
+            HStack {
+                AvatarView(user: message.sender)
+                
+                VStack(alignment: .leading) {
+                    Text("Public poll")
+                        .font(.poppins(type: .regular, size: 10.0))
+                        .foregroundColor(LKColors.xFEFEFE)
+                    Text(message.sender.fullName)
+                        .font(.poppins(type: .bold, size: 15.0))
+                        .foregroundColor(LKColors.xFEFEFE)
+                }
+                Spacer()
+            }
+            Spacer().frame(height: 20.0)
             
-            Text(pollMessage.content.title)
-                .font(.poppins(type: .bold, size: 14.0))
+            Text(message.content.title)
+                .foregroundColor(.white)
+                .font(.poppins(type: .medium, size: 15))
             
-            ForEach(pollMessage.content.options, id: \.id) { option in
+            ForEach(message.content.options, id: \.id) { option in
                 PollOptionView(
                     option: option,
-                    isSelected: option.id == pollMessage.content.selectedOptionId
+                    isSelected: option.id == message.content.selectedOptionId
                 )
                 .onTapGesture {
-                    if option.id != pollMessage.content.selectedOptionId {
+                    if option.id != message.content.selectedOptionId {
                         onOption(option.id)
                     }
                 }
             }
         }
         .padding()
+        .background(
+            LinearGradient(
+                gradient:
+                    Gradient(
+                        colors: [
+                            LKColors.xA83D7F,
+                            Color.black
+                        ]
+                    ),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .cornerRadius(15)
     }
 }
 
@@ -44,11 +64,16 @@ struct PollOptionView: View {
     
     var body: some View {
         HStack {
-            Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                .foregroundColor(isSelected ? .blue : .gray)
-            Text(option.text)
-                .font(.body)
-            Spacer()
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 16.0)
+                    .foregroundColor(isSelected ? LKColors.x7E7A9A : LKColors.x1C6EF2.opacity(0.15))
+                    .frame(height: 40.0)
+                Text(option.text)
+                    .font(.poppins(type: .regular, size: 12.0))
+                    .foregroundColor(LKColors.xFEFEFE)
+                    .padding(.leading, 16.0)
+                    .padding(.trailing, 16.0)
+            }
         }
     }
 }
@@ -57,11 +82,11 @@ struct PollMessageView_Previews: PreviewProvider {
     
     static var previews: some View {
         PollMessageView(
-            pollMessage: PollMessage(
+            message: PollMessage(
                 id: 3,
                 sender: MockMessageService.Constants.developer1,
                 content: .init(
-                    title: "What technology we will choose?",
+                    title: "What technology will we choose?",
                     selectedOptionId: nil,
                     options: [
                         .init(id: 0, text: "SwiftUI"),

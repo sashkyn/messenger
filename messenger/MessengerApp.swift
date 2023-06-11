@@ -14,6 +14,10 @@ struct MessengerApp: App {
     }
     
     init() {
+        setupAppBarStyle()
+    }
+    
+    private func setupAppBarStyle() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = LKColors.x1C1A2A.toUIColor()

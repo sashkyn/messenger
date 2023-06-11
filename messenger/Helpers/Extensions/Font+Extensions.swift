@@ -3,6 +3,8 @@ import SwiftUI
 enum PoppinsFontType {
     case regular
     case bold
+    case medium
+    case semibold
     
     var name: String {
         switch self {
@@ -10,6 +12,10 @@ enum PoppinsFontType {
             return "Poppins-Regular"
         case .bold:
             return "Poppins-Bold"
+        case .medium:
+            return "Poppins-Medium"
+        case .semibold:
+            return "Poppins-SemiBold"
         }
     }
 }
