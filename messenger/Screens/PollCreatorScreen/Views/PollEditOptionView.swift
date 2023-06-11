@@ -5,7 +5,7 @@ import Combine
 /// bug with deletion on textfield tap
 
 struct PollEditOptionViewModel: Identifiable {
-    let id: Int
+    let id: Int64
     var text: String
 }
 

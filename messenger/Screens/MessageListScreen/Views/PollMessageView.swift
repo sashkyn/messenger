@@ -1,11 +1,8 @@
 import SwiftUI
 
-/// TODO:
-/// добавить каунтер
-
 struct PollMessageView: View {
     let message: PollMessage
-    let onOption: (Int) -> Void
+    let onOption: (Int64?) -> Void
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -21,6 +18,20 @@ struct PollMessageView: View {
                         .foregroundColor(LKColors.xFEFEFE)
                 }
                 Spacer()
+                
+                ZStack {
+                    Circle()
+                        .frame(width: 50, height: 50.0)
+                        .foregroundColor(LKColors.xAC1393)
+                    VStack(spacing: -4) {
+                        Text("\(message.content.answersCount)")
+                            .font(.poppins(type: .semibold, size: 16.0))
+                            .foregroundColor(LKColors.xFEFEFE)
+                        Text("votes")
+                            .font(.poppins(type: .regular, size: 10.0))
+                            .foregroundColor(LKColors.xFEFEFE)
+                    }
+                }
             }
             Spacer().frame(height: 20.0)
             
@@ -29,14 +40,13 @@ struct PollMessageView: View {
                 .font(.poppins(type: .medium, size: 15))
             
             ForEach(message.content.options, id: \.id) { option in
+                let isSelected = option.id == message.getSelectedOptionId(senderId: message.sender.id)
                 PollOptionView(
                     option: option,
-                    isSelected: option.id == message.content.selectedOptionId
+                    isSelected: isSelected
                 )
                 .onTapGesture {
-                    if option.id != message.content.selectedOptionId {
-                        onOption(option.id)
-                    }
+                    onOption(isSelected ? nil : option.id)
                 }
             }
         }
@@ -87,12 +97,12 @@ struct PollMessageView_Previews: PreviewProvider {
                 sender: MockMessageService.Constants.developer1,
                 content: .init(
                     title: "What technology will we choose?",
-                    selectedOptionId: nil,
                     options: [
                         .init(id: 0, text: "SwiftUI"),
                         .init(id: 1, text: "UIKit"),
                         .init(id: 2, text: "Texture"),
-                    ]
+                    ],
+                    userAnswers: [:]
                 )
             ),
             onOption: { id in print(id) }

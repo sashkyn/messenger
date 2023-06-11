@@ -14,7 +14,7 @@ extension LKColors {
         LKColors.x1D7A81
     ]
     
-    static func makeRandomColor(int: Int) -> Color {
-        Self.randomColors[Self.randomColors.count % int]
+    static func makeRandomColor(int: Int64) -> Color {
+        Self.randomColors[Self.randomColors.count % Int(int)]
     }
 }

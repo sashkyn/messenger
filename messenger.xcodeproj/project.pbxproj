@@ -13,6 +13,7 @@
 		E652A8E12A28C8650010F621 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E02A28C8650010F621 /* Messages.swift */; };
 		E652A8E52A28C9120010F621 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E42A28C9120010F621 /* User.swift */; };
 		E652A8E82A28C9650010F621 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E72A28C9650010F621 /* MessageService.swift */; };
+		E66E585A2A35C8BF00A9DC82 /* Poll+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */; };
 		E6A11BBA2A31DC8B0041B705 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A11BB92A31DC8B0041B705 /* View+Extensions.swift */; };
 		E6A477752A284DA40024081F /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477742A284DA40024081F /* MessengerApp.swift */; };
 		E6A477772A284DA40024081F /* MessageListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477762A284DA40024081F /* MessageListScreenView.swift */; };
@@ -20,6 +21,7 @@
 		E6A4777C2A284DA40024081F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A4777B2A284DA40024081F /* Preview Assets.xcassets */; };
 		E6B8489D2A309BE50080D447 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = E6B8489C2A309BE50080D447 /* SFSafeSymbols */; };
 		E6B8489F2A30BA6C0080D447 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B8489E2A30BA6C0080D447 /* Binding+Extensions.swift */; };
+		E6C4BF982A35C33B00A9BBFF /* PollMessage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C4BF972A35C33B00A9BBFF /* PollMessage+Extensions.swift */; };
 		E6D38B5A2A34911D009BC2DA /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6D38B582A34911D009BC2DA /* Poppins-Bold.ttf */; };
 		E6D38B5B2A34911D009BC2DA /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6D38B592A34911D009BC2DA /* Poppins-Regular.ttf */; };
 		E6D38B5E2A34924B009BC2DA /* Font+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D38B5D2A34924B009BC2DA /* Font+Extensions.swift */; };
@@ -42,6 +44,7 @@
 		E652A8E02A28C8650010F621 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		E652A8E42A28C9120010F621 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E652A8E72A28C9650010F621 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Poll+Extensions.swift"; sourceTree = "<group>"; };
 		E6A11BB92A31DC8B0041B705 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E6A477712A284DA40024081F /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A477742A284DA40024081F /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		E6A477782A284DA40024081F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6A4777B2A284DA40024081F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E6B8489E2A30BA6C0080D447 /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
+		E6C4BF972A35C33B00A9BBFF /* PollMessage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PollMessage+Extensions.swift"; sourceTree = "<group>"; };
 		E6D38B582A34911D009BC2DA /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		E6D38B592A34911D009BC2DA /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		E6D38B5C2A349208009BC2DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 				E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */,
 				E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */,
 				E6D38B5D2A34924B009BC2DA /* Font+Extensions.swift */,
+				E6C4BF972A35C33B00A9BBFF /* PollMessage+Extensions.swift */,
+				E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,12 +308,14 @@
 				E652A8E82A28C9650010F621 /* MessageService.swift in Sources */,
 				E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */,
 				E612C2E12A31F861003CFB70 /* Constants.swift in Sources */,
+				E6C4BF982A35C33B00A9BBFF /* PollMessage+Extensions.swift in Sources */,
 				E6D38B602A357A52009BC2DA /* AvatarView.swift in Sources */,
 				E652A8E12A28C8650010F621 /* Messages.swift in Sources */,
 				E6ED6BEA2A2D9C150052611A /* PollCreatorScreen.swift in Sources */,
 				E612C2E32A320014003CFB70 /* LKColors+Extensions.swift in Sources */,
 				E6A477772A284DA40024081F /* MessageListScreenView.swift in Sources */,
 				E652A8E52A28C9120010F621 /* User.swift in Sources */,
+				E66E585A2A35C8BF00A9DC82 /* Poll+Extensions.swift in Sources */,
 				E6A11BBA2A31DC8B0041B705 /* View+Extensions.swift in Sources */,
 				E6B8489F2A30BA6C0080D447 /* Binding+Extensions.swift in Sources */,
 				E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */,

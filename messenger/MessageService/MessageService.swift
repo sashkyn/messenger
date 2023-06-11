@@ -3,15 +3,18 @@ import Combine
 
 protocol MessageService: AnyObject {
     
+    var user: User { get }
     var messages: [any Message] { get }
     var messagesPublisher: AnyPublisher<[any Message], Never> { get }
     
     func send(text: String)
     func send(poll: Poll)
-    func select(pollOptionId: Int?, inPollMessageId: Int64)
+    func select(pollOptionId: Int64?, inPollMessageId: Int64)
 }
 
 final class MockMessageService: MessageService {
+    
+    var user: User { Constants.developer1 }
     
     var messages: [any Message] {
         messagesSubject.value
@@ -41,7 +44,7 @@ final class MockMessageService: MessageService {
         messagesSubject.send(messages + [pollMessage])
     }
     
-    func select(pollOptionId: Int?, inPollMessageId: Int64) {
+    func select(pollOptionId: Int64?, inPollMessageId: Int64) {
         guard let pollMessageIndex = messages.firstIndex(where: { message in message.id == inPollMessageId }) else {
             return
         }
@@ -52,10 +55,13 @@ final class MockMessageService: MessageService {
             return
         }
         
+        var userAnswers = poll.userAnswers
+        userAnswers[user.id] = pollOptionId
+        
         let newContent = Poll(
             title: poll.title,
-            selectedOptionId: pollOptionId,
-            options: poll.options
+            options: poll.options,
+            userAnswers: userAnswers
         )
         let newPollMessage = PollMessage(
             id: pollMessage.id,
@@ -97,12 +103,12 @@ extension MockMessageService {
                 sender: developer1,
                 content: .init(
                     title: "What technology will we choose?",
-                    selectedOptionId: nil,
                     options: [
                         .init(id: 0, text: "SwiftUI"),
                         .init(id: 1, text: "UIKit"),
                         .init(id: 2, text: "Texture"),
-                    ]
+                    ],
+                    userAnswers: [:]
                 )
             )
         ]

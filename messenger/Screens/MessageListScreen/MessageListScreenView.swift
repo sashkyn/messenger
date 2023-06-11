@@ -8,10 +8,10 @@ import URLImage
 /// убрать сервис в контейнер
 ///
 /// Design:
-/// кастомный апп бар
 /// закешировать картинки
 /// статичные аватарки которые загружены один раз
 /// обрамить debug preview штуки
+/// сделать чтобы за полл можно было голосовать от глобального айди пользователя а не от сендера
 
 final class MessageListScreenViewModel: ObservableObject {
     
@@ -33,7 +33,7 @@ final class MessageListScreenViewModel: ObservableObject {
         textMessage = ""
     }
     
-    func select(pollOptionId: Int, inPollMessageId: Int64) {
+    func select(pollOptionId: Int64?, inPollMessageId: Int64) {
         service.select(
             pollOptionId: pollOptionId,
             inPollMessageId: inPollMessageId

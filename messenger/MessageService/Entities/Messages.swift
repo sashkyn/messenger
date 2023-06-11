@@ -26,11 +26,11 @@ struct PollMessage: Message {
 
 struct Poll: Hashable {
     let title: String
-    let selectedOptionId: Int?
     let options: [PollOption]
+    let userAnswers: [Int64: Int64]
 }
 
 struct PollOption: Hashable {
-    let id: Int
+    let id: Int64
     let text: String
 }

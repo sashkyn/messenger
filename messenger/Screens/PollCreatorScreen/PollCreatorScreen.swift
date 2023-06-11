@@ -20,11 +20,11 @@ final class PollCreatorScreenViewModel: ObservableObject {
     }
     
     func appendPollOption() {
-        let viewModel = PollEditOptionViewModel(id: optionViewModels.count, text: "")
+        let viewModel = PollEditOptionViewModel(id: Int64(optionViewModels.count), text: "")
         optionViewModels.append(viewModel)
     }
     
-    func removePollOption(optionId: Int) {
+    func removePollOption(optionId: Int64) {
         optionViewModels.removeAll(where: { $0.id == optionId })
     }
     
@@ -32,8 +32,8 @@ final class PollCreatorScreenViewModel: ObservableObject {
         service.send(
             poll: Poll(
                 title: question,
-                selectedOptionId: nil,
-                options: optionViewModels.map { PollOption(id: $0.id, text: $0.text) }
+                options: optionViewModels.map { PollOption(id: $0.id, text: $0.text) },
+                userAnswers: [:]
             )
         )
     }
