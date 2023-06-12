@@ -1,6 +1,6 @@
 import SwiftUI
 
-// MARK: Binding + limited set
+// MARK: Binding + Limited setting value
 
 extension Binding {
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6097F1D2A36E73600663BE6 /* LKSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6097F1C2A36E73600663BE6 /* LKSection.swift */; };
 		E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */; };
 		E612C2E12A31F861003CFB70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E02A31F861003CFB70 /* Constants.swift */; };
 		E612C2E32A320014003CFB70 /* LKColors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E6097F1C2A36E73600663BE6 /* LKSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKSection.swift; sourceTree = "<group>"; };
 		E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		E612C2E02A31F861003CFB70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LKColors+Extensions.swift"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				E6ED6BEC2A2F282B0052611A /* PollEditOptionView.swift */,
+				E6097F1C2A36E73600663BE6 /* LKSection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				E6A477772A284DA40024081F /* MessageListScreenView.swift in Sources */,
 				E652A8E52A28C9120010F621 /* User.swift in Sources */,
 				E66E585A2A35C8BF00A9DC82 /* Poll+Extensions.swift in Sources */,
+				E6097F1D2A36E73600663BE6 /* LKSection.swift in Sources */,
 				E6A11BBA2A31DC8B0041B705 /* View+Extensions.swift in Sources */,
 				E6B8489F2A30BA6C0080D447 /* Binding+Extensions.swift in Sources */,
 				E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */,

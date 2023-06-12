@@ -1,6 +1,15 @@
 import SwiftUI
 import Combine
 
+/// TODO
+/// исправить лаги ввода новых опционов
+/// кнопка create - сделать цвет синим при trailingEnabled
+/// игнорировать пустые опшионы
+/// дизайн для поллов
+/// убрать белый фон снизу
+/// доделать дизайн
+/// протестить обновление вьюшки
+
 final class PollCreatorScreenViewModel: ObservableObject {
     
     @Published var question: String = ""
@@ -8,10 +17,10 @@ final class PollCreatorScreenViewModel: ObservableObject {
     var isAnonymousOption: Bool = false
     var abilityToAddMoreOptions: Bool = false
     var createButtonEnabled: Bool { !optionViewModels.isEmpty && !question.isEmpty }
-    var questionLimitTitle: String { "\(question.count) / \(Constants.maxTitleSymbolCount)" }
-    var questionLimitEnabled: Bool { question.count > Constants.maxTitleSymbolCount }
-    var optionLimitTitle: String { "\(optionViewModels.count) / \(Constants.maxOptionCount)" }
-    var optionLimitEnabled: Bool { optionViewModels.count >= Constants.maxOptionCount }
+    var questionLimitTitle: String { "\(question.count)/\(Constants.maxTitleSymbolCount)" }
+    var questionEnterTextEnabled: Bool { question.count > Constants.maxTitleSymbolCount }
+    var optionsLimitTitle: String { "\(optionViewModels.count)/\(Constants.maxOptionCount)" }
+    var addNewOptionEnabled: Bool { optionViewModels.count < Constants.maxOptionCount }
     
     private let service: MessageService
     
@@ -19,8 +28,12 @@ final class PollCreatorScreenViewModel: ObservableObject {
         self.service = service
     }
     
+    @MainActor
     func appendPollOption() {
-        let viewModel = PollEditOptionViewModel(id: Int64(optionViewModels.count), text: "")
+        let viewModel = PollEditOptionViewModel(
+            id: Int64(optionViewModels.count),
+            text: ""
+        )
         optionViewModels.append(viewModel)
     }
     
@@ -48,44 +61,65 @@ struct PollCreatorScreen: View {
         NavigationView {
             VStack {
                 Form {
-                    Section(
-                        header: HStack {
-                            Text("Question")
-                            Spacer()
-                            Text(viewModel.questionLimitTitle)
-                        }
+                    LKSection(
+                        leadingTitle: "Question",
+                        trailingTitle: viewModel.questionLimitTitle,
+                        backgroundColor: LKColors.x114398
                     ) {
-                        TextField(
-                            "Ask a question",
-                            text: $viewModel.question.limitedSet(
-                                predicate: { text in viewModel.questionLimitEnabled }
+                        ZStack(alignment: .leading) {
+                            TextEditor(
+                                text: $viewModel.question.limitedSet(
+                                    predicate: { _ in viewModel.questionEnterTextEnabled }
+                                )
                             )
-                        )
-                    }
-                    
-                    Section(
-                        header: HStack {
-                            Text("Options")
-                            Spacer()
-                            Text(viewModel.optionLimitTitle)
+                            .font(.poppins(type: .regular, size: 15.0))
+                            .transparentScrolling()
+                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                            .background(LKColors.x2E2C3C)
+                            .cornerRadius(10.0)
+                            .foregroundColor(LKColors.xFEFEFE)
+                            
+                            if viewModel.question.isEmpty {
+                                Text("Ask a question")
+                                    .font(.poppins(type: .regular, size: 15.0))
+                                    .background(LKColors.x2E2C3C)
+                                    .foregroundColor(LKColors.x7E7A9A)
+                                    .padding(.leading, 8.0)
+                                    .padding(.trailing, 8.0)
+                                    .allowsHitTesting(false)
+                            }
                         }
+                    }
+                    LKSection(
+                        leadingTitle: "Options",
+                        trailingTitle: viewModel.optionsLimitTitle,
+                        backgroundColor: .clear
                     ) {
-                        ForEach($viewModel.optionViewModels) { optionViewModel in
+                        ForEach($viewModel.optionViewModels, id: \.id) { optionViewModel in
                             PollEditOptionView(
                                 viewModel: optionViewModel,
                                 onDelete: {
                                     viewModel.removePollOption(optionId: optionViewModel.wrappedValue.id)
-                                }
-                            )
+                                })
+                                .cornerRadius(10.0)
                         }
                         
-                        Button(action: viewModel.appendPollOption) {
-                            Text("Add an option")
+                        if (viewModel.addNewOptionEnabled) {
+                            Button(action: {
+                                viewModel.appendPollOption()
+                            }) {
+                                Text("Add an option")
+                                    .font(.poppins(type: .regular, size: 15.0))
+                                    .foregroundColor(LKColors.x1C6EF2)
+                                    .padding(15.0)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .background(LKColors.x1C1A2A)
+                                    .cornerRadius(10.0)
+                            }
                         }
-                            .disabled(viewModel.optionLimitEnabled)
                     }
                     
-                    Section(header: Text("Switches")) {
+                    LKSection(backgroundColor: .clear) {
                         Toggle(
                             "Anonymous voting",
                             isOn: $viewModel.isAnonymousOption
@@ -96,6 +130,7 @@ struct PollCreatorScreen: View {
                         )
                     }
                 }
+                .transparentScrolling()
             }
             .modalAppBar(
                 title: "New poll",
@@ -109,6 +144,7 @@ struct PollCreatorScreen: View {
                     presentationMode.wrappedValue.dismiss()
                 }
             )
+            .background(LKColors.x14131B)
         }
     }
 }
@@ -148,7 +184,7 @@ private extension View {
                         label: {
                             Text(trailingTitle)
                                 .font(.poppins(type: .medium, size: 14.0))
-                                .foregroundColor(LKColors.x7E7A9A)
+                                .foregroundColor(trailingActionEnabled ? LKColors.x1C1A2A : LKColors.x7E7A9A)
                         }
                     )
                     .disabled(!trailingActionEnabled)

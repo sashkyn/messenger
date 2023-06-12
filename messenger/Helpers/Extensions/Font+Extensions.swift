@@ -26,6 +26,6 @@ extension Font {
         type: PoppinsFontType,
         size: CGFloat
     ) -> Font {
-        .custom(type.name, size: size)
+        custom(type.name, size: size)
     }
 }

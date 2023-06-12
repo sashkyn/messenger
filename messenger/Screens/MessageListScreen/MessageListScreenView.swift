@@ -12,7 +12,7 @@ import URLImage
 /// статичные аватарки которые загружены один раз
 /// обрамить debug preview штуки
 /// сделать белым цветом статус бар
-/// исправить добавление нового полла, чет не работает
+/// сделать слежение за клавиатурой и текст филда снизу
 
 final class MessageListScreenViewModel: ObservableObject {
     
@@ -133,8 +133,8 @@ private extension View {
                             .font(.poppins(type: .semibold, size: 16.0))
                             .foregroundColor(LKColors.xFEFEFE)
                         Text(subtitle)
-                            .font(.poppins(type: .regular, size: 16.0))
-                            .foregroundColor(LKColors.xFEFEFE)
+                            .font(.poppins(type: .regular, size: 12.0))
+                            .foregroundColor(LKColors.x7E7A9A)
                     }
                 }
             })

@@ -36,6 +36,7 @@ struct MessageTextField: View {
                             .foregroundColor(LKColors.x7E7A9A)
                             .padding(.leading, 8)
                             .padding(.trailing, 8)
+                            .allowsHitTesting(false)
                     }
                 }
                 
