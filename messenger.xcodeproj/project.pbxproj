@@ -81,6 +81,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E62030A82A36E3FE00B743AE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E6D38B612A357BFC009BC2DA /* Poppins-Medium.ttf */,
+				E6D38B632A358228009BC2DA /* Poppins-SemiBold.ttf */,
+				E6D38B582A34911D009BC2DA /* Poppins-Bold.ttf */,
+				E6D38B592A34911D009BC2DA /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E652A8DE2A28C83F0010F621 /* MessageService */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,10 +152,7 @@
 		E6D38B572A34910D009BC2DA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E6D38B612A357BFC009BC2DA /* Poppins-Medium.ttf */,
-				E6D38B632A358228009BC2DA /* Poppins-SemiBold.ttf */,
-				E6D38B582A34911D009BC2DA /* Poppins-Bold.ttf */,
-				E6D38B592A34911D009BC2DA /* Poppins-Regular.ttf */,
+				E62030A82A36E3FE00B743AE /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

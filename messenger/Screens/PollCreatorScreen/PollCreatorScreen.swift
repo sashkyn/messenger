@@ -112,6 +112,46 @@ struct PollCreatorScreen: View {
     }
 }
 
+private extension View {
+    
+    func modalAppBar(
+        title: String,
+        trailingTitle: String,
+        onTrailingAction: (() -> Void)?,
+        onClose: @escaping () -> Void
+    ) -> some View {
+        self
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar(content: {
+                ToolbarItem(placement: .principal) {
+                    VStack {
+                        Text(title)
+                            .font(.poppins(type: .bold, size: 16.0))
+                            .foregroundColor(LKColors.xFEFEFE)
+                    }
+                }
+            })
+            .navigationBarItems(
+                leading: Button(
+                    action: { onClose() },
+                    label: {
+                        Image(systemSymbol: .xmark)
+                            .foregroundColor(LKColors.xFEFEFE)
+                    }
+                ),
+                trailing: Button(
+                    action: { onClose() },
+                    label: {
+                        Text(trailingTitle)
+                            .font(.poppins(type: .medium, size: 14.0))
+                            .foregroundColor(LKColors.x7E7A9A)
+                    }
+                ).disabled(onTrailingAction == nil)
+            )
+    }
+}
+
 // MARK: Preview
 
 struct ContentView_Previews: PreviewProvider {
