@@ -140,7 +140,7 @@ private extension View {
             })
             .navigationBarItems(
                 leading: Button(
-                    action: { onClose() },
+                    action: onClose,
                     label: {
                         Image(systemSymbol: .xmark)
                             .foregroundColor(LKColors.xFEFEFE)

@@ -100,10 +100,11 @@ struct PollCreatorScreen: View {
             .modalAppBar(
                 title: "New poll",
                 trailingTitle: "Create",
-                onTrailingAction: viewModel.createButtonEnabled ? {
+                trailingActionEnabled: viewModel.createButtonEnabled,
+                onTrailingAction: {
                     viewModel.createPoll()
                     presentationMode.wrappedValue.dismiss()
-                } : nil,
+                },
                 onClose: {
                     presentationMode.wrappedValue.dismiss()
                 }
@@ -117,7 +118,8 @@ private extension View {
     func modalAppBar(
         title: String,
         trailingTitle: String,
-        onTrailingAction: (() -> Void)?,
+        trailingActionEnabled: Bool,
+        onTrailingAction: @escaping () -> Void,
         onClose: @escaping () -> Void
     ) -> some View {
         self
@@ -127,27 +129,29 @@ private extension View {
                 ToolbarItem(placement: .principal) {
                     VStack {
                         Text(title)
-                            .font(.poppins(type: .bold, size: 16.0))
+                            .font(.poppins(type: .semibold, size: 16.0))
                             .foregroundColor(LKColors.xFEFEFE)
                     }
                 }
             })
             .navigationBarItems(
                 leading: Button(
-                    action: { onClose() },
+                    action: onClose,
                     label: {
                         Image(systemSymbol: .xmark)
                             .foregroundColor(LKColors.xFEFEFE)
                     }
                 ),
-                trailing: Button(
-                    action: { onClose() },
-                    label: {
-                        Text(trailingTitle)
-                            .font(.poppins(type: .medium, size: 14.0))
-                            .foregroundColor(LKColors.x7E7A9A)
-                    }
-                ).disabled(onTrailingAction == nil)
+                trailing:
+                    Button(
+                        action: onTrailingAction,
+                        label: {
+                            Text(trailingTitle)
+                                .font(.poppins(type: .medium, size: 14.0))
+                                .foregroundColor(LKColors.x7E7A9A)
+                        }
+                    )
+                    .disabled(!trailingActionEnabled)
             )
     }
 }
