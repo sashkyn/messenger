@@ -53,7 +53,7 @@ struct MessageTextField: View {
                 .padding(.top, 12.0)
                 .padding(.leading, 8.0)
                 .padding(.trailing, 8.0)
-                .padding(.bottom, 32.0)
+                .padding(.bottom, 12.0)
                 .background(LKColors.x14131B)
         }
     }

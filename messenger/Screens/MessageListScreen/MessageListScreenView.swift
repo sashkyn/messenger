@@ -44,6 +44,8 @@ final class MessageListScreenViewModel: ObservableObject {
 
 struct MessageListScreenView: View {
     
+    @State private var keyboardHeight: CGFloat = 0
+    
     @State
     var isPollCreatorPresented: Bool = false
 
@@ -71,12 +73,13 @@ struct MessageListScreenView: View {
                                         }
                                     )
                                 default:
-                                    let notSupportedTextMessage = TextMessage(
-                                        id: message.id,
-                                        sender: message.sender,
-                                        content: "No supported message"
+                                    TextMessageView(
+                                        message: .init(
+                                            id: message.id,
+                                            sender: message.sender,
+                                            content: "Not supported message"
+                                        )
                                     )
-                                    TextMessageView(message: notSupportedTextMessage)
                                 }
                             }
                             .onChange(of: viewModel.messages.count) { _ in
@@ -84,10 +87,12 @@ struct MessageListScreenView: View {
                             }
                         }
                     }
+                    .resignKeyboardOnDragGesture()
                     .background(LKColors.x14131B)
                 }
                 VStack {
                     Spacer()
+                        .edgesIgnoringSafeArea(.bottom)
                     MessageTextField(
                         text: $viewModel.textMessage,
                         onLeadingAction: {
@@ -99,7 +104,6 @@ struct MessageListScreenView: View {
                     )
                 }
             }
-            .edgesIgnoringSafeArea(.bottom)
             .messageListAppBar(
                 title: "LowKey Squad",
                 subtitle: "1 member • 1 online",
@@ -149,6 +153,8 @@ private extension View {
             )
     }
 }
+
+// MARK: Preview
 
 struct MessagesScreenView_Previews: PreviewProvider {
     
