@@ -39,7 +39,10 @@ struct MessageListScreen: View {
                                     }
                                 }
                                 .onChange(of: viewModel.messages.count) { _ in
-                                    scrollViewProxy.scrollTo(viewModel.messages.last?.id ?? 0)
+                                    guard let lastMessageId = viewModel.messages.last?.id else {
+                                        return
+                                    }
+                                    scrollViewProxy.scrollTo(lastMessageId)
                                 }
                             }
                             .padding(16.0)
