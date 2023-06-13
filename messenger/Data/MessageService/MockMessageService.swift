@@ -56,9 +56,14 @@ final class MockMessageService: MessageService {
             sender: pollMessage.sender,
             content: newContent
         )
-        var newMessageArray = messages
-        newMessageArray[pollMessageIndex] = newPollMessage
-        messagesSubject.send(newMessageArray)
+        var newMessages = messages
+        newMessages[pollMessageIndex] = newPollMessage
+        messagesSubject.send(newMessages)
+    }
+    
+    func deleteAllMessages() {
+        let newMessages = messages.filter { $0.sender.id != currentUser.id }
+        messagesSubject.send(newMessages)
     }
 }
 

@@ -50,8 +50,7 @@ struct MessageListScreen: View {
                         .hideKeyboardOnScroll()
                         .background(LKColors.x14131B)
                     }
-                    Spacer()
-                        .frame(height: 70.0)
+                    Spacer().frame(height: 70.0)
                 }
                 VStack {
                     Spacer()
@@ -70,7 +69,9 @@ struct MessageListScreen: View {
             .messageListAppBar(
                 title: "LowKey Squad",
                 subtitle: "1 member • 1 online",
-                onClose: {}
+                onClose: {
+                    viewModel.deleteAllMessages()
+                }
             )
             .sheet(isPresented: $viewModel.isPollCreatorPresented) {
                 PollCreatorScreen()

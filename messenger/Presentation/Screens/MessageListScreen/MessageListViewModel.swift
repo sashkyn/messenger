@@ -35,4 +35,9 @@ final class MessageListViewModel: ObservableObject {
             inPollMessageId: inPollMessageId
         )
     }
+    
+    @MainActor
+    func deleteAllMessages() {
+        service.deleteAllMessages()
+    }
 }

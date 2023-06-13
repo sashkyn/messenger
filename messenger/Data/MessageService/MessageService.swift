@@ -10,4 +10,5 @@ protocol MessageService: AnyObject {
     func send(text: String)
     func send(poll: Poll)
     func select(pollOptionId: Int64?, inPollMessageId: Int64)
+    func deleteAllMessages()
 }

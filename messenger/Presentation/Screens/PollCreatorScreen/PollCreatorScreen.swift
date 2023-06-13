@@ -25,21 +25,18 @@ struct PollCreatorScreen: View {
                                     )
                                 )
                                 .font(.poppins(type: .regular, size: 15.0))
-                                .transparentScrolling()
-                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                                .background(LKColors.x2E2C3C)
-                                .cornerRadius(10.0)
                                 .foregroundColor(LKColors.xFEFEFE)
                                 
                                 if viewModel.question.isEmpty {
                                     Text("Ask a question")
                                         .font(.poppins(type: .regular, size: 15.0))
-                                        .background(LKColors.x2E2C3C)
                                         .foregroundColor(LKColors.x7E7A9A)
                                         .padding(.horizontal, 8.0)
                                         .allowsHitTesting(false)
                                 }
                             }
+                            .background(LKColors.x2E2C3C)
+                            .cornerRadius(10.0)
                         }
                         InfoSection(
                             leadingTitle: "Options",
@@ -98,6 +95,8 @@ struct PollCreatorScreen: View {
     }
 }
 
+// MARK: AppBar Customization
+
 private extension View {
     
     func modalAppBar(
@@ -112,11 +111,9 @@ private extension View {
             .navigationBarBackButtonHidden(true)
             .toolbar(content: {
                 ToolbarItem(placement: .principal) {
-                    VStack {
-                        Text(title)
-                            .font(.poppins(type: .semibold, size: 16.0))
-                            .foregroundColor(LKColors.xFEFEFE)
-                    }
+                    Text(title)
+                        .font(.poppins(type: .semibold, size: 16.0))
+                        .foregroundColor(LKColors.xFEFEFE)
                 }
             })
             .navigationBarItems(
