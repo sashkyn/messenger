@@ -177,7 +177,7 @@ private extension View {
                         label: {
                             Text(trailingTitle)
                                 .font(.poppins(type: .medium, size: 14.0))
-                                .foregroundColor(trailingActionEnabled ? LKColors.x1C1A2A : LKColors.x7E7A9A)
+                                .foregroundColor(trailingActionEnabled ? LKColors.x1C6EF2 : LKColors.x7E7A9A)
                         }
                     )
                     .disabled(!trailingActionEnabled)
