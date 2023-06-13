@@ -14,7 +14,7 @@
 		E600BD2C2A385238009F099B /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = E600BD2B2A385238009F099B /* Factory */; };
 		E6097F1D2A36E73600663BE6 /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6097F1C2A36E73600663BE6 /* InfoSection.swift */; };
 		E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */; };
-		E612C2E12A31F861003CFB70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E02A31F861003CFB70 /* Constants.swift */; };
+		E612C2E12A31F861003CFB70 /* LKColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E02A31F861003CFB70 /* LKColors.swift */; };
 		E612C2E32A320014003CFB70 /* LKColors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */; };
 		E652A8E52A28C9120010F621 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E42A28C9120010F621 /* User.swift */; };
 		E652A8E82A28C9650010F621 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E72A28C9650010F621 /* MessageService.swift */; };
@@ -22,6 +22,7 @@
 		E6767B0A2A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B092A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift */; };
 		E6767B0F2A381DE300EEB385 /* MockMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B0E2A381DE300EEB385 /* MockMessageService.swift */; };
 		E6767B112A381E4700EEB385 /* PollAddAnOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B102A381E4700EEB385 /* PollAddAnOptionView.swift */; };
+		E68B75BF2A38B1F900FF552F /* ExpandableTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68B75BE2A38B1F900FF552F /* ExpandableTextEditor.swift */; };
 		E6A11BBA2A31DC8B0041B705 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A11BB92A31DC8B0041B705 /* View+Extensions.swift */; };
 		E6A477752A284DA40024081F /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477742A284DA40024081F /* MessengerApp.swift */; };
 		E6A477772A284DA40024081F /* MessageListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477762A284DA40024081F /* MessageListScreen.swift */; };
@@ -54,7 +55,7 @@
 		E600BD252A38468B009F099B /* AvatarView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AvatarView+Extensions.swift"; sourceTree = "<group>"; };
 		E6097F1C2A36E73600663BE6 /* InfoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSection.swift; sourceTree = "<group>"; };
 		E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		E612C2E02A31F861003CFB70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E612C2E02A31F861003CFB70 /* LKColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKColors.swift; sourceTree = "<group>"; };
 		E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LKColors+Extensions.swift"; sourceTree = "<group>"; };
 		E652A8E42A28C9120010F621 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E652A8E72A28C9650010F621 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		E6767B092A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardOnScrollModifier.swift; sourceTree = "<group>"; };
 		E6767B0E2A381DE300EEB385 /* MockMessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessageService.swift; sourceTree = "<group>"; };
 		E6767B102A381E4700EEB385 /* PollAddAnOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAddAnOptionView.swift; sourceTree = "<group>"; };
+		E68B75BE2A38B1F900FF552F /* ExpandableTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTextEditor.swift; sourceTree = "<group>"; };
 		E6A11BB92A31DC8B0041B705 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E6A477712A284DA40024081F /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A477742A284DA40024081F /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
@@ -104,9 +106,8 @@
 		E600BD202A3835EB009F099B /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				E6D38B5F2A357A52009BC2DA /* AvatarView.swift */,
-				E6097F1C2A36E73600663BE6 /* InfoSection.swift */,
-				E600BD1E2A38347D009F099B /* ImageTitleToggle.swift */,
+				E68B75BD2A38AF7700FF552F /* Views */,
+				E612C2E02A31F861003CFB70 /* LKColors.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -177,6 +178,17 @@
 				E6767B092A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift */,
 			);
 			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		E68B75BD2A38AF7700FF552F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E6D38B5F2A357A52009BC2DA /* AvatarView.swift */,
+				E6097F1C2A36E73600663BE6 /* InfoSection.swift */,
+				E600BD1E2A38347D009F099B /* ImageTitleToggle.swift */,
+				E68B75BE2A38B1F900FF552F /* ExpandableTextEditor.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E6A477682A284DA40024081F = {
@@ -316,7 +328,6 @@
 			children = (
 				E6767B0D2A372AEF00EEB385 /* ViewModifiers */,
 				E6ED6BDC2A2C8EA40052611A /* Extensions */,
-				E612C2E02A31F861003CFB70 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -403,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E68B75BF2A38B1F900FF552F /* ExpandableTextEditor.swift in Sources */,
 				E6D38B5E2A34924B009BC2DA /* Font+Extensions.swift in Sources */,
 				E6ED6BE42A2C90650052611A /* TextMessageView.swift in Sources */,
 				E6ED6BDE2A2C8EB70052611A /* User+Extensions.swift in Sources */,
@@ -414,7 +426,7 @@
 				E600BD222A383B0D009F099B /* PollCreatorViewModel.swift in Sources */,
 				E652A8E82A28C9650010F621 /* MessageService.swift in Sources */,
 				E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */,
-				E612C2E12A31F861003CFB70 /* Constants.swift in Sources */,
+				E612C2E12A31F861003CFB70 /* LKColors.swift in Sources */,
 				E600BD262A38468B009F099B /* AvatarView+Extensions.swift in Sources */,
 				E6EB161B2A385AFE003310A0 /* PollMessage.swift in Sources */,
 				E6C4BF982A35C33B00A9BBFF /* PollMessage+Extensions.swift in Sources */,

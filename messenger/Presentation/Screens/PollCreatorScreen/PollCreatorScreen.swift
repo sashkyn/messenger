@@ -18,28 +18,13 @@ struct PollCreatorScreen: View {
                             trailingTitle: viewModel.questionLimitTitle,
                             backgroundColor: LKColors.x114398
                         ) {
-                            ZStack(alignment: .leading) {
-                                TextEditor(
-                                    text: $viewModel.question.limitedSet(
-                                        predicate: { _ in viewModel.questionEnterTextEnabled }
-                                    )
-                                )
-                                .font(.poppins(type: .regular, size: 15.0))
-                                .transparentScrolling()
-                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                                .background(LKColors.x2E2C3C)
-                                .cornerRadius(10.0)
-                                .foregroundColor(LKColors.xFEFEFE)
-                                .frame(height: 40, alignment: .leading)
-                                
-                                if viewModel.question.isEmpty {
-                                    Text("Ask a question")
-                                        .font(.poppins(type: .regular, size: 15.0))
-                                        .foregroundColor(LKColors.x7E7A9A)
-                                        .padding(.horizontal, 8.0)
-                                        .allowsHitTesting(false)
-                                }
-                            }
+                            ExpandableTextEditor(
+                                text: $viewModel.question.limitedSet(
+                                    predicate: { _ in viewModel.questionEnterTextEnabled }
+                                ),
+                                placeholderText: "Ask a question"
+                            )
+                            .cornerRadius(12.0)
                         }
                         Spacer().frame(height: 25.0)
                         InfoSection(
