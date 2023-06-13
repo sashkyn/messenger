@@ -39,7 +39,7 @@ final class MessageListScreenViewModel: ObservableObject {
     }
 }
 
-struct MessageListScreenView: View {
+struct MessageListScreen: View {
     
     @State
     var isPollCreatorPresented: Bool = false
@@ -154,7 +154,7 @@ private extension View {
 struct MessagesScreenView_Previews: PreviewProvider {
     
     static var previews: some View {
-        MessageListScreenView(
+        MessageListScreen(
             viewModel: MessageListScreenViewModel(
                 service: MockMessageService()
             )
