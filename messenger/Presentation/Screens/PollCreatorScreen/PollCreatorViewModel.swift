@@ -10,12 +10,17 @@ final class PollCreatorScreenViewModel: ObservableObject {
     @Published var optionViewModels: [PollEditOptionViewModel] = []
     var isAnonymousOption: Bool = false
     var abilityToAddMoreOptions: Bool = false
-    var createButtonEnabled: Bool { !optionViewModels.isEmpty && !question.isEmpty }
     var questionLimitTitle: String { "\(question.count)/\(Constants.maxTitleSymbolCount)" }
     var questionEnterTextEnabled: Bool { question.count > Constants.maxTitleSymbolCount }
     var optionsLimitTitle: String { "\(optionViewModels.count)/\(Constants.maxOptionCount)" }
     var addNewOptionEnabled: Bool { optionViewModels.count < Constants.maxOptionCount }
+    var createButtonEnabled: Bool {
+        !optionViewModels.isEmpty &&
+        !question.isEmpty &&
+        optionViewModels.filter { $0.text.isEmpty }.isEmpty
+    }
     
+    @MainActor
     func appendPollOption() {
         let viewModel = PollEditOptionViewModel(
             id: Int64(optionViewModels.count),
@@ -24,10 +29,12 @@ final class PollCreatorScreenViewModel: ObservableObject {
         optionViewModels.append(viewModel)
     }
     
+    @MainActor
     func removePollOption(optionId: Int64) {
         optionViewModels.removeAll(where: { $0.id == optionId })
     }
     
+    @MainActor
     func createPoll() {
         service.send(
             poll: Poll(

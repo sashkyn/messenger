@@ -2,7 +2,7 @@ import Combine
 
 final class MockMessageService: MessageService {
     
-    var user: User { Constants.developer1 }
+    var currentUser: User { Constants.developer1 }
     
     var messages: [any Message] {
         messagesSubject.value
@@ -44,7 +44,7 @@ final class MockMessageService: MessageService {
         }
         
         var userAnswers = poll.userAnswers
-        userAnswers[user.id] = pollOptionId
+        userAnswers[currentUser.id] = pollOptionId
         
         let newContent = Poll(
             title: poll.title,

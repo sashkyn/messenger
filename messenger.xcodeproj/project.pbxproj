@@ -97,14 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E600BD202A3835EB009F099B /* LKUIKit */ = {
+		E600BD202A3835EB009F099B /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
 				E6D38B5F2A357A52009BC2DA /* AvatarView.swift */,
 				E6097F1C2A36E73600663BE6 /* InfoSection.swift */,
 				E600BD1E2A38347D009F099B /* ImageTitleToggle.swift */,
 			);
-			path = LKUIKit;
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		E600BD272A3846DD009F099B /* UI */ = {
@@ -194,11 +194,9 @@
 		E6A477732A284DA40024081F /* messenger */ = {
 			isa = PBXGroup;
 			children = (
-				E600BD202A3835EB009F099B /* LKUIKit */,
+				E6EB16132A38591D003310A0 /* Data */,
+				E6EB16142A385949003310A0 /* Presentation */,
 				E6D38B572A34910D009BC2DA /* Resources */,
-				E6ED6BEE2A2F36A60052611A /* Helpers */,
-				E6ED6BDF2A2C90220052611A /* Screens */,
-				E652A8DE2A28C83F0010F621 /* MessageService */,
 				E6A477742A284DA40024081F /* MessengerApp.swift */,
 				E6A477782A284DA40024081F /* Assets.xcassets */,
 				E6D38B5C2A349208009BC2DA /* Info.plist */,
@@ -223,6 +221,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E6EB16132A38591D003310A0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E652A8DE2A28C83F0010F621 /* MessageService */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E6EB16142A385949003310A0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E600BD202A3835EB009F099B /* UIKit */,
+				E6ED6BDF2A2C90220052611A /* Screens */,
+				E6ED6BEE2A2F36A60052611A /* Helpers */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		E6ED6BDC2A2C8EA40052611A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,8 +252,8 @@
 		E6ED6BDF2A2C90220052611A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E6ED6BE12A2C903B0052611A /* PollCreatorScreen */,
 				E6ED6BE02A2C90370052611A /* MessageListScreen */,
+				E6ED6BE12A2C903B0052611A /* PollCreatorScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -246,8 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				E6ED6BE22A2C904F0052611A /* Views */,
-				E6A477762A284DA40024081F /* MessageListScreen.swift */,
 				E600BD232A383B3D009F099B /* MessageListViewModel.swift */,
+				E6A477762A284DA40024081F /* MessageListScreen.swift */,
 			);
 			path = MessageListScreen;
 			sourceTree = "<group>";
@@ -256,8 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				E6ED6BEB2A2F28210052611A /* Views */,
-				E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */,
 				E600BD212A383B0D009F099B /* PollCreatorViewModel.swift */,
+				E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */,
 			);
 			path = PollCreatorScreen;
 			sourceTree = "<group>";

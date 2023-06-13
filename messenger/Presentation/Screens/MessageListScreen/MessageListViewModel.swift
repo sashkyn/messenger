@@ -18,6 +18,7 @@ final class MessageListViewModel: ObservableObject {
             .sink(receiveValue: { [weak self] messages in self?.messages = messages })
     }
     
+    @MainActor
     func send(text: String) {
         guard !text.isEmpty else {
             return
@@ -27,6 +28,7 @@ final class MessageListViewModel: ObservableObject {
         currentMessageText = ""
     }
     
+    @MainActor
     func select(pollOptionId: Int64?, inPollMessageId: Int64) {
         service.select(
             pollOptionId: pollOptionId,

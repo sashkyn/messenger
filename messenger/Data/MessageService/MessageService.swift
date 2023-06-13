@@ -3,7 +3,7 @@ import Combine
 
 protocol MessageService: AnyObject {
     
-    var user: User { get }
+    var currentUser: User { get }
     var messages: [any Message] { get }
     var messagesPublisher: AnyPublisher<[any Message], Never> { get }
     
