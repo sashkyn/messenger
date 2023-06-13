@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E600BD1F2A38347D009F099B /* LKSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600BD1E2A38347D009F099B /* LKSwitch.swift */; };
+		E600BD222A383B0D009F099B /* PollCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600BD212A383B0D009F099B /* PollCreatorViewModel.swift */; };
+		E600BD242A383B3D009F099B /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600BD232A383B3D009F099B /* MessageListViewModel.swift */; };
 		E6097F1D2A36E73600663BE6 /* LKSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6097F1C2A36E73600663BE6 /* LKSection.swift */; };
 		E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */; };
 		E612C2E12A31F861003CFB70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E02A31F861003CFB70 /* Constants.swift */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		E600BD1E2A38347D009F099B /* LKSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKSwitch.swift; sourceTree = "<group>"; };
+		E600BD212A383B0D009F099B /* PollCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollCreatorViewModel.swift; sourceTree = "<group>"; };
+		E600BD232A383B3D009F099B /* MessageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewModel.swift; sourceTree = "<group>"; };
 		E6097F1C2A36E73600663BE6 /* LKSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKSection.swift; sourceTree = "<group>"; };
 		E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		E612C2E02A31F861003CFB70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			children = (
 				E6ED6BE22A2C904F0052611A /* Views */,
 				E6A477762A284DA40024081F /* MessageListScreen.swift */,
+				E600BD232A383B3D009F099B /* MessageListViewModel.swift */,
 			);
 			path = MessageListScreen;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 			children = (
 				E6ED6BEB2A2F28210052611A /* Views */,
 				E6ED6BE92A2D9C150052611A /* PollCreatorScreen.swift */,
+				E600BD212A383B0D009F099B /* PollCreatorViewModel.swift */,
 			);
 			path = PollCreatorScreen;
 			sourceTree = "<group>";
@@ -345,7 +351,9 @@
 				E6ED6BDE2A2C8EB70052611A /* User+Extensions.swift in Sources */,
 				E6ED6BED2A2F282B0052611A /* PollEditOptionView.swift in Sources */,
 				E6767B112A381E4700EEB385 /* PollAddAnOptionView.swift in Sources */,
+				E600BD242A383B3D009F099B /* MessageListViewModel.swift in Sources */,
 				E6767B0F2A381DE300EEB385 /* MockMessageService.swift in Sources */,
+				E600BD222A383B0D009F099B /* PollCreatorViewModel.swift in Sources */,
 				E652A8E82A28C9650010F621 /* MessageService.swift in Sources */,
 				E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */,
 				E612C2E12A31F861003CFB70 /* Constants.swift in Sources */,
