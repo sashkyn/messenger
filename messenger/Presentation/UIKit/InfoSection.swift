@@ -20,8 +20,8 @@ struct InfoSection<Content: View>: View {
     }
     
     var body: some View {
-        Section(
-            header: HStack {
+        VStack {
+            HStack {
                 if let leadingTitle {
                     Text(leadingTitle)
                         .foregroundColor(LKColors.x7E7A9A)
@@ -33,11 +33,9 @@ struct InfoSection<Content: View>: View {
                         .foregroundColor(LKColors.x7E7A9A)
                         .font(.poppins(type: .medium, size: 12))
                 }
-            },
-            content: content
-        )
-        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-        .listRowBackground(backgroundColor)
+            }
+            content()
+        }
     }
 }
 
@@ -46,7 +44,7 @@ struct InfoSection<Content: View>: View {
 struct LKSection_Previews: PreviewProvider {
     
     static var previews: some View {
-        Form {
+        VStack {
             InfoSection(
                 leadingTitle: "1",
                 trailingTitle: "2",
@@ -65,7 +63,6 @@ struct LKSection_Previews: PreviewProvider {
                 }
             )
         }
-        .transparentScrolling()
         .background(Color.black)
     }
 }

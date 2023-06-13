@@ -11,8 +11,8 @@ struct PollCreatorScreen: View {
         NavigationView {
             ZStack {
                 LKColors.x14131B.ignoresSafeArea()
-                VStack {
-                    Form {
+                ScrollView {
+                    VStack {
                         InfoSection(
                             leadingTitle: "Question",
                             trailingTitle: viewModel.questionLimitTitle,
@@ -25,7 +25,12 @@ struct PollCreatorScreen: View {
                                     )
                                 )
                                 .font(.poppins(type: .regular, size: 15.0))
+                                .transparentScrolling()
+                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                .background(LKColors.x2E2C3C)
+                                .cornerRadius(10.0)
                                 .foregroundColor(LKColors.xFEFEFE)
+                                .frame(height: 40, alignment: .leading)
                                 
                                 if viewModel.question.isEmpty {
                                     Text("Ask a question")
@@ -35,9 +40,8 @@ struct PollCreatorScreen: View {
                                         .allowsHitTesting(false)
                                 }
                             }
-                            .background(LKColors.x2E2C3C)
-                            .cornerRadius(10.0)
                         }
+                        Spacer().frame(height: 25.0)
                         InfoSection(
                             leadingTitle: "Options",
                             trailingTitle: viewModel.optionsLimitTitle,
@@ -51,7 +55,6 @@ struct PollCreatorScreen: View {
                                     }
                                 )
                                 .cornerRadius(10.0)
-                                .padding(.vertical, 4.0)
                             }
                             
                             if (viewModel.addNewOptionEnabled) {
@@ -59,9 +62,9 @@ struct PollCreatorScreen: View {
                                     action: { viewModel.appendPollOption() }
                                 )
                                 .cornerRadius(10.0)
-                                .padding(.vertical, 4.0)
                             }
                         }
+                        Spacer().frame(height: 25.0)
                         InfoSection(backgroundColor: .clear) {
                             ImageTitleToggle(
                                 image: Image(systemSymbol: .iCircleFill),
@@ -75,21 +78,21 @@ struct PollCreatorScreen: View {
                             )
                         }
                     }
-                    .transparentScrolling()
+                    .modalAppBar(
+                        title: "New poll",
+                        trailingTitle: "Create",
+                        trailingActionEnabled: viewModel.createButtonEnabled,
+                        onTrailingAction: {
+                            viewModel.createPoll()
+                            presentationMode.wrappedValue.dismiss()
+                        },
+                        onClose: {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    )
+                    .background(LKColors.x14131B)
+                    .padding()
                 }
-                .modalAppBar(
-                    title: "New poll",
-                    trailingTitle: "Create",
-                    trailingActionEnabled: viewModel.createButtonEnabled,
-                    onTrailingAction: {
-                        viewModel.createPoll()
-                        presentationMode.wrappedValue.dismiss()
-                    },
-                    onClose: {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                )
-                .background(LKColors.x14131B)
             }
         }
     }

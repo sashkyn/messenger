@@ -24,7 +24,7 @@ struct PollMessageView: View {
                     Circle()
                         .frame(width: 50, height: 50.0)
                         .foregroundColor(LKColors.xAC1393)
-                    VStack(spacing: -4) {
+                    VStack(spacing: -4.0) {
                         Text("\(message.content.answersCount)")
                             .font(.poppins(type: .semibold, size: 16.0))
                             .foregroundColor(LKColors.xFEFEFE)
