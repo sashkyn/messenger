@@ -106,14 +106,15 @@ struct PollCreatorScreen: View {
                                 .padding(.vertical, 4.0)
                             }
                         }
-                        
                         LKSection(backgroundColor: .clear) {
-                            Toggle(
-                                "Anonymous voting",
+                            LKSwitch(
+                                title: "Anonymous voting",
+                                image: Image(systemSymbol: .iCircleFill),
                                 isOn: $viewModel.isAnonymousOption
                             )
-                            Toggle(
-                                "Ability to add more options",
+                            LKSwitch(
+                                title: "Ability to add more options",
+                                image: Image(systemSymbol: .dollarsignCircle),
                                 isOn: $viewModel.abilityToAddMoreOptions
                             )
                         }
