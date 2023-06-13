@@ -4,7 +4,6 @@ import URLImage
 
 /// TODO:
 ///
-/// !!! добавить боттом сдвиг контента чтобы text field не перекрывал сообщения
 /// убрать сервис в контейнер
 ///
 /// Design:
@@ -21,52 +20,58 @@ struct MessageListScreen: View {
 
     var body: some View {
         NavigationView {
-            ZStack(alignment: .top) {
+            ZStack {
                 LKColors.x14131B.ignoresSafeArea()
-                ScrollViewReader { scrollViewProxy in
-                    ScrollView(.vertical) {
-                        LazyVStack {
-                            ForEach(viewModel.messages, id: \.id) { message in
-                                switch message {
-                                case let textMessage as TextMessage:
-                                    TextMessageView(message: textMessage)
-                                case let pollMessage as PollMessage:
-                                    PollMessageView(
-                                        message: pollMessage,
-                                        onOption: { optionId in
-                                            viewModel.select(
-                                                pollOptionId: optionId,
-                                                inPollMessageId: message.id
-                                            )
-                                        }
-                                    )
-                                default:
-                                    TextMessageView(
-                                        message: .init(
-                                            id: message.id,
-                                            sender: message.sender,
-                                            content: "Not supported message"
+                VStack {
+                    ScrollViewReader { scrollViewProxy in
+                        ScrollView(.vertical) {
+                            LazyVStack {
+                                ForEach(viewModel.messages, id: \.id) { message in
+                                    switch message {
+                                    case let textMessage as TextMessage:
+                                        TextMessageView(message: textMessage)
+                                    case let pollMessage as PollMessage:
+                                        PollMessageView(
+                                            message: pollMessage,
+                                            onOption: { optionId in
+                                                viewModel.select(
+                                                    pollOptionId: optionId,
+                                                    inPollMessageId: message.id
+                                                )
+                                            }
                                         )
-                                    )
+                                    default:
+                                        TextMessageView(
+                                            message: .init(
+                                                id: message.id,
+                                                sender: message.sender,
+                                                content: "Not supported message"
+                                            )
+                                        )
+                                    }
+                                }
+                                .onChange(of: viewModel.messages.count) { _ in
+                                    scrollViewProxy.scrollTo(viewModel.messages.last?.id ?? 0)
                                 }
                             }
-                            .onChange(of: viewModel.messages.count) { _ in
-                                scrollViewProxy.scrollTo(viewModel.messages.last?.id ?? 0)
-                            }
+                            .padding(16.0)
                         }
+                        .hideKeyboardOnScroll()
+                        .background(LKColors.x14131B)
                     }
-                    .hideKeyboardOnScroll()
-                    .background(LKColors.x14131B)
+                    Spacer()
+                        .frame(height: 70.0)
                 }
                 VStack {
                     Spacer()
                     MessageTextField(
-                        text: $viewModel.textMessage,
+                        text: $viewModel.currentMessageText,
                         onLeadingAction: {
                             isPollCreatorPresented = true
                         },
+                        isTrailingActionEnabled: viewModel.isSendButtonEnabled,
                         onTrailingAction: {
-                            viewModel.send(text: viewModel.textMessage)
+                            viewModel.send(text: viewModel.currentMessageText)
                         }
                     )
                 }

@@ -2,8 +2,9 @@ import Combine
 
 final class MessageListViewModel: ObservableObject {
     
-    @Published var textMessage: String = ""
+    @Published var currentMessageText: String = ""
     @Published var messages: [any Message] = []
+    var isSendButtonEnabled: Bool { !currentMessageText.isEmpty }
     
     let service: MessageService
     private var cancellable: AnyCancellable?
@@ -16,8 +17,12 @@ final class MessageListViewModel: ObservableObject {
     }
     
     func send(text: String) {
+        guard !text.isEmpty else {
+            return
+        }
+        
         service.send(text: text)
-        textMessage = ""
+        currentMessageText = ""
     }
     
     func select(pollOptionId: Int64?, inPollMessageId: Int64) {

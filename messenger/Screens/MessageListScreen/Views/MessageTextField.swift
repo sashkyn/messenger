@@ -1,21 +1,17 @@
 import SwiftUI
 import SFSafeSymbols
 
-/// TODO:
-/// убрать боттом оффсет для не safe area девайсов
-/// multiline
-///
-
 struct MessageTextField: View {
     
     let text: Binding<String>
     let onLeadingAction: () -> Void
+    let isTrailingActionEnabled: Bool
     let onTrailingAction: () -> Void
     
     var body: some View {
         ZStack {
             HStack {
-                Button(action: { onLeadingAction() }) {
+                Button(action: onLeadingAction) {
                     Image(systemSymbol: .cubeFill)
                         .font(.title2)
                         .foregroundColor(LKColors.xFEFEFE)
@@ -40,21 +36,16 @@ struct MessageTextField: View {
                     }
                 }
                 
-                Button(
-                    action: {
-                        onTrailingAction()
-                    }
-                ) {
+                Button(action: onTrailingAction) {
                     Image(systemSymbol: .recordCircle)
                         .font(.title2)
-                        .foregroundColor(LKColors.xFEFEFE)
+                        .foregroundColor(isTrailingActionEnabled ? LKColors.xFEFEFE : LKColors.x7E7A9A)
                 }
+                .disabled(!isTrailingActionEnabled)
             }
-                .padding(.top, 12.0)
-                .padding(.leading, 8.0)
-                .padding(.trailing, 8.0)
-                .padding(.bottom, 12.0)
-                .background(LKColors.x14131B)
+            .padding(.vertical, 12.0)
+            .padding(.horizontal, 8.0)
+            .background(LKColors.x14131B)
         }
     }
 }
@@ -65,6 +56,7 @@ struct MessageTextField_Previews: PreviewProvider {
         MessageTextField(
             text: .constant("Text with message"),
             onLeadingAction: { },
+            isTrailingActionEnabled: false,
             onTrailingAction: { }
         )
     }

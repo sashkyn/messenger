@@ -19,7 +19,8 @@ struct LKSwitch: View {
                 }
                 .toggleStyle(SwitchToggleStyle(tint: LKColors.x1C6EF2))
         }
-        .padding()
+        .padding(.vertical, 8.0)
+        .padding(.horizontal, 4.0)
         .background(LKColors.x14131B)
     }
 }

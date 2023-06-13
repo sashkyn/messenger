@@ -34,8 +34,7 @@ struct PollCreatorScreen: View {
                                         .font(.poppins(type: .regular, size: 15.0))
                                         .background(LKColors.x2E2C3C)
                                         .foregroundColor(LKColors.x7E7A9A)
-                                        .padding(.leading, 8.0)
-                                        .padding(.trailing, 8.0)
+                                        .padding(.horizontal, 8.0)
                                         .allowsHitTesting(false)
                                 }
                             }
@@ -45,7 +44,7 @@ struct PollCreatorScreen: View {
                             trailingTitle: viewModel.optionsLimitTitle,
                             backgroundColor: .clear
                         ) {
-                            ForEach($viewModel.optionViewModels, id: \.id) { optionViewModel in
+                            ForEach($viewModel.optionViewModels) { optionViewModel in
                                 PollEditOptionView(
                                     viewModel: optionViewModel,
                                     onDelete: {

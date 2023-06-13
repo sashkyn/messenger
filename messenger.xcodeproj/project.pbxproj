@@ -163,13 +163,13 @@
 			isa = PBXGroup;
 			children = (
 				E600BD202A3835EB009F099B /* LKUIKit */,
-				E6D38B5C2A349208009BC2DA /* Info.plist */,
 				E6D38B572A34910D009BC2DA /* Resources */,
 				E6ED6BEE2A2F36A60052611A /* Helpers */,
 				E6ED6BDF2A2C90220052611A /* Screens */,
 				E652A8DE2A28C83F0010F621 /* MessageService */,
 				E6A477742A284DA40024081F /* MessengerApp.swift */,
 				E6A477782A284DA40024081F /* Assets.xcassets */,
+				E6D38B5C2A349208009BC2DA /* Info.plist */,
 				E6A4777A2A284DA40024081F /* Preview Content */,
 			);
 			path = messenger;

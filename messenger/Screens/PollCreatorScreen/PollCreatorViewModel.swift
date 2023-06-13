@@ -18,7 +18,6 @@ final class PollCreatorScreenViewModel: ObservableObject {
         self.service = service
     }
     
-    @MainActor
     func appendPollOption() {
         let viewModel = PollEditOptionViewModel(
             id: Int64(optionViewModels.count),

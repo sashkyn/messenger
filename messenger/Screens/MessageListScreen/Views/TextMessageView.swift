@@ -19,7 +19,6 @@ struct TextMessageView: View {
             }
             Spacer()
         }
-        .padding()
     }
 }
 
