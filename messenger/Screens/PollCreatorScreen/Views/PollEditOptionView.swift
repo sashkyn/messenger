@@ -37,6 +37,7 @@ struct PollEditOptionView: View {
                 }
                 
         }
+        .frame(height: 51.0)
         .background(LKColors.x1C1A2A)
     }
     

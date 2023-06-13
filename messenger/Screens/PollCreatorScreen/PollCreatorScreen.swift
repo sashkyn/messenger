@@ -1,15 +1,6 @@
 import SwiftUI
 import Combine
 
-/// TODO
-/// исправить лаги ввода новых опционов
-/// кнопка create - сделать цвет синим при trailingEnabled
-/// игнорировать пустые опшионы
-/// дизайн для поллов
-/// убрать белый фон снизу
-/// доделать дизайн
-/// протестить обновление вьюшки
-
 final class PollCreatorScreenViewModel: ObservableObject {
     
     @Published var question: String = ""
@@ -58,86 +49,91 @@ struct PollCreatorScreen: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Form {
-                    LKSection(
-                        leadingTitle: "Question",
-                        trailingTitle: viewModel.questionLimitTitle,
-                        backgroundColor: LKColors.x114398
-                    ) {
-                        ZStack(alignment: .leading) {
-                            TextEditor(
-                                text: $viewModel.question.limitedSet(
-                                    predicate: { _ in viewModel.questionEnterTextEnabled }
+            ZStack {
+                LKColors.x14131B.ignoresSafeArea()
+                VStack {
+                    Form {
+                        LKSection(
+                            leadingTitle: "Question",
+                            trailingTitle: viewModel.questionLimitTitle,
+                            backgroundColor: LKColors.x114398
+                        ) {
+                            ZStack(alignment: .leading) {
+                                TextEditor(
+                                    text: $viewModel.question.limitedSet(
+                                        predicate: { _ in viewModel.questionEnterTextEnabled }
+                                    )
                                 )
-                            )
-                            .font(.poppins(type: .regular, size: 15.0))
-                            .transparentScrolling()
-                            .clipShape(RoundedRectangle(cornerRadius: 10.0))
-                            .background(LKColors.x2E2C3C)
-                            .cornerRadius(10.0)
-                            .foregroundColor(LKColors.xFEFEFE)
-                            
-                            if viewModel.question.isEmpty {
-                                Text("Ask a question")
-                                    .font(.poppins(type: .regular, size: 15.0))
-                                    .background(LKColors.x2E2C3C)
-                                    .foregroundColor(LKColors.x7E7A9A)
-                                    .padding(.leading, 8.0)
-                                    .padding(.trailing, 8.0)
-                                    .allowsHitTesting(false)
+                                .font(.poppins(type: .regular, size: 15.0))
+                                .transparentScrolling()
+                                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                                .background(LKColors.x2E2C3C)
+                                .cornerRadius(10.0)
+                                .foregroundColor(LKColors.xFEFEFE)
+                                
+                                if viewModel.question.isEmpty {
+                                    Text("Ask a question")
+                                        .font(.poppins(type: .regular, size: 15.0))
+                                        .background(LKColors.x2E2C3C)
+                                        .foregroundColor(LKColors.x7E7A9A)
+                                        .padding(.leading, 8.0)
+                                        .padding(.trailing, 8.0)
+                                        .allowsHitTesting(false)
+                                }
                             }
                         }
-                    }
-                    LKSection(
-                        leadingTitle: "Options",
-                        trailingTitle: viewModel.optionsLimitTitle,
-                        backgroundColor: .clear
-                    ) {
-                        ForEach($viewModel.optionViewModels, id: \.id) { optionViewModel in
-                            PollEditOptionView(
-                                viewModel: optionViewModel,
-                                onDelete: {
-                                    viewModel.removePollOption(optionId: optionViewModel.wrappedValue.id)
-                                }
-                            )
-                            .cornerRadius(10.0)
+                        LKSection(
+                            leadingTitle: "Options",
+                            trailingTitle: viewModel.optionsLimitTitle,
+                            backgroundColor: .clear
+                        ) {
+                            ForEach($viewModel.optionViewModels, id: \.id) { optionViewModel in
+                                PollEditOptionView(
+                                    viewModel: optionViewModel,
+                                    onDelete: {
+                                        viewModel.removePollOption(optionId: optionViewModel.wrappedValue.id)
+                                    }
+                                )
+                                .cornerRadius(10.0)
+                                .padding(.vertical, 4.0)
+                            }
+                            
+                            if (viewModel.addNewOptionEnabled) {
+                                PollAddAnOptionView(
+                                    action: { viewModel.appendPollOption() }
+                                )
+                                .cornerRadius(10.0)
+                                .padding(.vertical, 4.0)
+                            }
                         }
                         
-                        if (viewModel.addNewOptionEnabled) {
-                            PollAddAnOptionView(
-                                action: { viewModel.appendPollOption() }
+                        LKSection(backgroundColor: .clear) {
+                            Toggle(
+                                "Anonymous voting",
+                                isOn: $viewModel.isAnonymousOption
                             )
-                            .cornerRadius(10.0)
+                            Toggle(
+                                "Ability to add more options",
+                                isOn: $viewModel.abilityToAddMoreOptions
+                            )
                         }
                     }
-                    
-                    LKSection(backgroundColor: .clear) {
-                        Toggle(
-                            "Anonymous voting",
-                            isOn: $viewModel.isAnonymousOption
-                        )
-                        Toggle(
-                            "Ability to add more options",
-                            isOn: $viewModel.abilityToAddMoreOptions
-                        )
+                    .transparentScrolling()
+                }
+                .modalAppBar(
+                    title: "New poll",
+                    trailingTitle: "Create",
+                    trailingActionEnabled: viewModel.createButtonEnabled,
+                    onTrailingAction: {
+                        viewModel.createPoll()
+                        presentationMode.wrappedValue.dismiss()
+                    },
+                    onClose: {
+                        presentationMode.wrappedValue.dismiss()
                     }
-                }
-                .transparentScrolling()
+                )
+                .background(LKColors.x14131B)
             }
-            .modalAppBar(
-                title: "New poll",
-                trailingTitle: "Create",
-                trailingActionEnabled: viewModel.createButtonEnabled,
-                onTrailingAction: {
-                    viewModel.createPoll()
-                    presentationMode.wrappedValue.dismiss()
-                },
-                onClose: {
-                    presentationMode.wrappedValue.dismiss()
-                }
-            )
-            .background(LKColors.x14131B)
         }
     }
 }

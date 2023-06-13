@@ -12,6 +12,7 @@ struct PollAddAnOptionView: View {
                 .padding(15.0)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(LKColors.x1C1A2A)
+                .frame(height: 51.0)
         }
     }
     
