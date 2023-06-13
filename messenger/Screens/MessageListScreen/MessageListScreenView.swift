@@ -12,7 +12,6 @@ import URLImage
 /// статичные аватарки которые загружены один раз
 /// обрамить debug preview штуки
 /// сделать белым цветом статус бар
-/// сделать слежение за клавиатурой и текст филда снизу
 
 final class MessageListScreenViewModel: ObservableObject {
     
@@ -43,8 +42,6 @@ final class MessageListScreenViewModel: ObservableObject {
 }
 
 struct MessageListScreenView: View {
-    
-    @State private var keyboardHeight: CGFloat = 0
     
     @State
     var isPollCreatorPresented: Bool = false
@@ -88,7 +85,7 @@ struct MessageListScreenView: View {
                             }
                         }
                     }
-                    .resignKeyboardOnDragGesture()
+                    .hideKeyboardOnScroll()
                     .background(LKColors.x14131B)
                 }
                 VStack {

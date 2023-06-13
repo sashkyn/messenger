@@ -1,6 +1,6 @@
 import SwiftUI
 
-private struct ResignKeyboardOnDragGesture: ViewModifier {
+private struct HideKeyboardOnScrollModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content.gesture(
@@ -18,7 +18,7 @@ private struct ResignKeyboardOnDragGesture: ViewModifier {
 
 extension View {
     
-    func resignKeyboardOnDragGesture() -> some View {
-        modifier(ResignKeyboardOnDragGesture())
+    func hideKeyboardOnScroll() -> some View {
+        modifier(HideKeyboardOnScrollModifier())
     }
 }

@@ -78,9 +78,9 @@ extension MockMessageService {
     
     struct Constants {
         
-        static let developer1: User = .init(id: 1, firstName: "Funky", lastName: "Tapir", avatarURL: URL(string: "https://i.pravatar.cc/40")!)
-        static let developer2: User = .init(id: 2, firstName: "Empty", lastName: "Cat", avatarURL: URL(string: "https://i.pravatar.cc/40")!)
-        static let developer3: User = .init(id: 3, firstName: "Crazy", lastName: "Frog", avatarURL: URL(string: "https://i.pravatar.cc/40")!)
+        static let developer1: User = .init(id: 1, firstName: "Funky", lastName: "Tapir")
+        static let developer2: User = .init(id: 2, firstName: "Empty", lastName: "Cat")
+        static let developer3: User = .init(id: 3, firstName: "Crazy", lastName: "Frog")
         
         static let messages: [any Message] = [
             TextMessage(
