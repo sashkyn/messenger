@@ -54,7 +54,8 @@ struct MessageListScreenView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
+            ZStack(alignment: .top) {
+                LKColors.x14131B.ignoresSafeArea()
                 ScrollViewReader { scrollViewProxy in
                     ScrollView(.vertical) {
                         LazyVStack {
@@ -92,7 +93,6 @@ struct MessageListScreenView: View {
                 }
                 VStack {
                     Spacer()
-                        .edgesIgnoringSafeArea(.bottom)
                     MessageTextField(
                         text: $viewModel.textMessage,
                         onLeadingAction: {
