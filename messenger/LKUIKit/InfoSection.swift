@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LKSection<Content: View>: View {
+struct InfoSection<Content: View>: View {
     
     let leadingTitle: String?
     let trailingTitle: String?
@@ -47,7 +47,7 @@ struct LKSection_Previews: PreviewProvider {
     
     static var previews: some View {
         Form {
-            LKSection(
+            InfoSection(
                 leadingTitle: "1",
                 trailingTitle: "2",
                 backgroundColor: Color.red,

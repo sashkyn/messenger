@@ -14,3 +14,12 @@ extension View {
         }
     }
 }
+
+// MARK: View + hide keyboard on scrolling
+
+extension View {
+    
+    func hideKeyboardOnScroll() -> some View {
+        modifier(HideKeyboardOnScrollModifier())
+    }
+}

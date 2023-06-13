@@ -11,7 +11,7 @@ struct PollCreatorScreen: View {
                 LKColors.x14131B.ignoresSafeArea()
                 VStack {
                     Form {
-                        LKSection(
+                        InfoSection(
                             leadingTitle: "Question",
                             trailingTitle: viewModel.questionLimitTitle,
                             backgroundColor: LKColors.x114398
@@ -39,7 +39,7 @@ struct PollCreatorScreen: View {
                                 }
                             }
                         }
-                        LKSection(
+                        InfoSection(
                             leadingTitle: "Options",
                             trailingTitle: viewModel.optionsLimitTitle,
                             backgroundColor: .clear
@@ -63,15 +63,15 @@ struct PollCreatorScreen: View {
                                 .padding(.vertical, 4.0)
                             }
                         }
-                        LKSection(backgroundColor: .clear) {
-                            LKSwitch(
-                                title: "Anonymous voting",
+                        InfoSection(backgroundColor: .clear) {
+                            ImageTitleToggle(
                                 image: Image(systemSymbol: .iCircleFill),
+                                title: "Anonymous voting",
                                 isOn: $viewModel.isAnonymousOption
                             )
-                            LKSwitch(
-                                title: "Ability to add more options",
+                            ImageTitleToggle(
                                 image: Image(systemSymbol: .dollarsignCircle),
+                                title: "Ability to add more options",
                                 isOn: $viewModel.abilityToAddMoreOptions
                             )
                         }

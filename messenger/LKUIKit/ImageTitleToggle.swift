@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct LKSwitch: View {
+struct ImageTitleToggle: View {
     
-    let title: String
     let image: Image
+    let title: String
     @Binding var isOn: Bool
     
     var body: some View {
@@ -28,9 +28,9 @@ struct LKSwitch: View {
 struct LKSwitch_Previews: PreviewProvider {
     
     static var previews: some View {
-        LKSwitch(
-            title: "Anonymous voting",
+        ImageTitleToggle(
             image: Image(systemSymbol: .manatsignCircle),
+            title: "Anonymous voting",
             isOn: .constant(true)
         )
     }

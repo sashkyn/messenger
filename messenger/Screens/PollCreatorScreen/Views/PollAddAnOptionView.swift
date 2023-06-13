@@ -19,6 +19,8 @@ struct PollAddAnOptionView: View {
     
 }
 
+// MARK: Preview
+
 struct PollAddAnOptionView_Previews: PreviewProvider {
     static var previews: some View {
         PollAddAnOptionView(action: { })

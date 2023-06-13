@@ -1,6 +1,6 @@
 import SwiftUI
 
-private struct HideKeyboardOnScrollModifier: ViewModifier {
+struct HideKeyboardOnScrollModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content.gesture(
@@ -13,12 +13,5 @@ private struct HideKeyboardOnScrollModifier: ViewModifier {
                 )
             }
         )
-    }
-}
-
-extension View {
-    
-    func hideKeyboardOnScroll() -> some View {
-        modifier(HideKeyboardOnScrollModifier())
     }
 }
