@@ -3,7 +3,9 @@ import Combine
 
 struct PollCreatorScreen: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel: PollCreatorScreenViewModel
+    
+    @ObservedObject
+    private var viewModel = PollCreatorScreenViewModel()
     
     var body: some View {
         NavigationView {
@@ -144,10 +146,6 @@ private extension View {
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        PollCreatorScreen(
-            viewModel: PollCreatorScreenViewModel(
-                service: MockMessageService()
-            )
-        )
+        PollCreatorScreen()
     }
 }

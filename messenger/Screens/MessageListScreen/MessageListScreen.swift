@@ -1,22 +1,10 @@
 import SwiftUI
 import Combine
-import URLImage
-
-/// TODO:
-///
-/// убрать сервис в контейнер
-///
-/// Design:
-/// обрамить debug preview штуки
-/// сделать белым цветом статус бар
 
 struct MessageListScreen: View {
     
-    @State
-    var isPollCreatorPresented: Bool = false
-
     @ObservedObject
-    var viewModel: MessageListViewModel
+    private var viewModel = MessageListViewModel()
 
     var body: some View {
         NavigationView {
@@ -67,7 +55,7 @@ struct MessageListScreen: View {
                     MessageTextField(
                         text: $viewModel.currentMessageText,
                         onLeadingAction: {
-                            isPollCreatorPresented = true
+                            viewModel.isPollCreatorPresented = true
                         },
                         isTrailingActionEnabled: viewModel.isSendButtonEnabled,
                         onTrailingAction: {
@@ -81,12 +69,8 @@ struct MessageListScreen: View {
                 subtitle: "1 member • 1 online",
                 onClose: {}
             )
-            .sheet(isPresented: $isPollCreatorPresented) {
-                PollCreatorScreen(
-                    viewModel: PollCreatorScreenViewModel(
-                        service: viewModel.service
-                    )
-                )
+            .sheet(isPresented: $viewModel.isPollCreatorPresented) {
+                PollCreatorScreen()
             }
         }
     }
@@ -131,10 +115,6 @@ private extension View {
 struct MessageListScreen_Previews: PreviewProvider {
     
     static var previews: some View {
-        MessageListScreen(
-            viewModel: MessageListViewModel(
-                service: MockMessageService()
-            )
-        )
+        MessageListScreen()
     }
 }

@@ -11,6 +11,7 @@
 		E600BD222A383B0D009F099B /* PollCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600BD212A383B0D009F099B /* PollCreatorViewModel.swift */; };
 		E600BD242A383B3D009F099B /* MessageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600BD232A383B3D009F099B /* MessageListViewModel.swift */; };
 		E600BD262A38468B009F099B /* AvatarView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E600BD252A38468B009F099B /* AvatarView+Extensions.swift */; };
+		E600BD2C2A385238009F099B /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = E600BD2B2A385238009F099B /* Factory */; };
 		E6097F1D2A36E73600663BE6 /* InfoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6097F1C2A36E73600663BE6 /* InfoSection.swift */; };
 		E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */; };
 		E612C2E12A31F861003CFB70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E02A31F861003CFB70 /* Constants.swift */; };
@@ -36,7 +37,6 @@
 		E6D38B602A357A52009BC2DA /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D38B5F2A357A52009BC2DA /* AvatarView.swift */; };
 		E6D38B622A357BFC009BC2DA /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6D38B612A357BFC009BC2DA /* Poppins-Medium.ttf */; };
 		E6D38B642A358228009BC2DA /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6D38B632A358228009BC2DA /* Poppins-SemiBold.ttf */; };
-		E6ED6BDB2A2C8E610052611A /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = E6ED6BDA2A2C8E610052611A /* URLImage */; };
 		E6ED6BDE2A2C8EB70052611A /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BDD2A2C8EB70052611A /* User+Extensions.swift */; };
 		E6ED6BE42A2C90650052611A /* TextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE32A2C90650052611A /* TextMessageView.swift */; };
 		E6ED6BE62A2C90750052611A /* PollMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE52A2C90750052611A /* PollMessageView.swift */; };
@@ -89,8 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E600BD2C2A385238009F099B /* Factory in Frameworks */,
 				E6B8489D2A309BE50080D447 /* SFSafeSymbols in Frameworks */,
-				E6ED6BDB2A2C8E610052611A /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +308,8 @@
 			);
 			name = messenger;
 			packageProductDependencies = (
-				E6ED6BDA2A2C8E610052611A /* URLImage */,
 				E6B8489C2A309BE50080D447 /* SFSafeSymbols */,
+				E600BD2B2A385238009F099B /* Factory */,
 			);
 			productName = messenger;
 			productReference = E6A477712A284DA40024081F /* messenger.app */;
@@ -342,6 +342,7 @@
 			packageReferences = (
 				E6ED6BD92A2C8E610052611A /* XCRemoteSwiftPackageReference "url-image" */,
 				E6B8489B2A309BE50080D447 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
+				E600BD2A2A385238009F099B /* XCRemoteSwiftPackageReference "Factory" */,
 			);
 			productRefGroup = E6A477722A284DA40024081F /* Products */;
 			projectDirPath = "";
@@ -607,6 +608,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E600BD2A2A385238009F099B /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E6B8489B2A309BE50080D447 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols";
@@ -626,15 +635,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E600BD2B2A385238009F099B /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E600BD2A2A385238009F099B /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
 		E6B8489C2A309BE50080D447 /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E6B8489B2A309BE50080D447 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
 			productName = SFSafeSymbols;
-		};
-		E6ED6BDA2A2C8E610052611A /* URLImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E6ED6BD92A2C8E610052611A /* XCRemoteSwiftPackageReference "url-image" */;
-			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

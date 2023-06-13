@@ -1,17 +1,19 @@
 import Combine
+import Factory
 
 final class MessageListViewModel: ObservableObject {
     
+    @Injected(\.messageService)
+    private var service: MessageService
+    
     @Published var currentMessageText: String = ""
     @Published var messages: [any Message] = []
+    @Published var isPollCreatorPresented: Bool = false
     var isSendButtonEnabled: Bool { !currentMessageText.isEmpty }
-    
-    let service: MessageService
+
     private var cancellable: AnyCancellable?
     
-    init(service: MessageService) {
-        self.service = service
-        
+    init() {
         self.cancellable = service.messagesPublisher
             .sink(receiveValue: { [weak self] messages in self?.messages = messages })
     }

@@ -1,6 +1,10 @@
 import Combine
+import Factory
 
 final class PollCreatorScreenViewModel: ObservableObject {
+    
+    @Injected(\.messageService)
+    private var service: MessageService
     
     @Published var question: String = ""
     @Published var optionViewModels: [PollEditOptionViewModel] = []
@@ -11,12 +15,6 @@ final class PollCreatorScreenViewModel: ObservableObject {
     var questionEnterTextEnabled: Bool { question.count > Constants.maxTitleSymbolCount }
     var optionsLimitTitle: String { "\(optionViewModels.count)/\(Constants.maxOptionCount)" }
     var addNewOptionEnabled: Bool { optionViewModels.count < Constants.maxOptionCount }
-    
-    private let service: MessageService
-    
-    init(service: MessageService) {
-        self.service = service
-    }
     
     func appendPollOption() {
         let viewModel = PollEditOptionViewModel(
