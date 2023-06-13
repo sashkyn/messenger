@@ -7,7 +7,7 @@ final class MessageListViewModel: ObservableObject {
     private var service: MessageService
     
     @Published var currentMessageText: String = ""
-    @Published var messages: [any Message] = []
+    @Published var messages: [any ContentMessage] = []
     @Published var isPollCreatorPresented: Bool = false
     var isSendButtonEnabled: Bool { !currentMessageText.isEmpty }
 

@@ -4,8 +4,8 @@ import Combine
 protocol MessageService: AnyObject {
     
     var currentUser: User { get }
-    var messages: [any Message] { get }
-    var messagesPublisher: AnyPublisher<[any Message], Never> { get }
+    var messages: [any ContentMessage] { get }
+    var messagesPublisher: AnyPublisher<[any ContentMessage], Never> { get }
     
     func send(text: String)
     func send(poll: Poll)

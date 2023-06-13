@@ -16,7 +16,6 @@
 		E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */; };
 		E612C2E12A31F861003CFB70 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E02A31F861003CFB70 /* Constants.swift */; };
 		E612C2E32A320014003CFB70 /* LKColors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */; };
-		E652A8E12A28C8650010F621 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E02A28C8650010F621 /* Messages.swift */; };
 		E652A8E52A28C9120010F621 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E42A28C9120010F621 /* User.swift */; };
 		E652A8E82A28C9650010F621 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E72A28C9650010F621 /* MessageService.swift */; };
 		E66E585A2A35C8BF00A9DC82 /* Poll+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */; };
@@ -37,6 +36,9 @@
 		E6D38B602A357A52009BC2DA /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D38B5F2A357A52009BC2DA /* AvatarView.swift */; };
 		E6D38B622A357BFC009BC2DA /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6D38B612A357BFC009BC2DA /* Poppins-Medium.ttf */; };
 		E6D38B642A358228009BC2DA /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E6D38B632A358228009BC2DA /* Poppins-SemiBold.ttf */; };
+		E6EB16172A385AD9003310A0 /* ContentMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EB16162A385AD9003310A0 /* ContentMessage.swift */; };
+		E6EB16192A385AE6003310A0 /* TextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EB16182A385AE6003310A0 /* TextMessage.swift */; };
+		E6EB161B2A385AFE003310A0 /* PollMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6EB161A2A385AFE003310A0 /* PollMessage.swift */; };
 		E6ED6BDE2A2C8EB70052611A /* User+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BDD2A2C8EB70052611A /* User+Extensions.swift */; };
 		E6ED6BE42A2C90650052611A /* TextMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE32A2C90650052611A /* TextMessageView.swift */; };
 		E6ED6BE62A2C90750052611A /* PollMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6ED6BE52A2C90750052611A /* PollMessageView.swift */; };
@@ -54,7 +56,6 @@
 		E612C2DE2A31F6F5003CFB70 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		E612C2E02A31F861003CFB70 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LKColors+Extensions.swift"; sourceTree = "<group>"; };
-		E652A8E02A28C8650010F621 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		E652A8E42A28C9120010F621 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E652A8E72A28C9650010F621 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Poll+Extensions.swift"; sourceTree = "<group>"; };
@@ -76,6 +77,9 @@
 		E6D38B5F2A357A52009BC2DA /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		E6D38B612A357BFC009BC2DA /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		E6D38B632A358228009BC2DA /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		E6EB16162A385AD9003310A0 /* ContentMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMessage.swift; sourceTree = "<group>"; };
+		E6EB16182A385AE6003310A0 /* TextMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessage.swift; sourceTree = "<group>"; };
+		E6EB161A2A385AFE003310A0 /* PollMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollMessage.swift; sourceTree = "<group>"; };
 		E6ED6BDD2A2C8EB70052611A /* User+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Extensions.swift"; sourceTree = "<group>"; };
 		E6ED6BE32A2C90650052611A /* TextMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageView.swift; sourceTree = "<group>"; };
 		E6ED6BE52A2C90750052611A /* PollMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollMessageView.swift; sourceTree = "<group>"; };
@@ -161,7 +165,7 @@
 		E652A8DF2A28C85B0010F621 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				E652A8E02A28C8650010F621 /* Messages.swift */,
+				E6EB16152A385ACE003310A0 /* Messages */,
 				E652A8E42A28C9120010F621 /* User.swift */,
 			);
 			path = Entities;
@@ -237,6 +241,16 @@
 				E6ED6BEE2A2F36A60052611A /* Helpers */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E6EB16152A385ACE003310A0 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				E6EB16162A385AD9003310A0 /* ContentMessage.swift */,
+				E6EB16182A385AE6003310A0 /* TextMessage.swift */,
+				E6EB161A2A385AFE003310A0 /* PollMessage.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 		E6ED6BDC2A2C8EA40052611A /* Extensions */ = {
@@ -393,6 +407,7 @@
 				E6ED6BE42A2C90650052611A /* TextMessageView.swift in Sources */,
 				E6ED6BDE2A2C8EB70052611A /* User+Extensions.swift in Sources */,
 				E6ED6BED2A2F282B0052611A /* PollEditOptionView.swift in Sources */,
+				E6EB16172A385AD9003310A0 /* ContentMessage.swift in Sources */,
 				E6767B112A381E4700EEB385 /* PollAddAnOptionView.swift in Sources */,
 				E600BD242A383B3D009F099B /* MessageListViewModel.swift in Sources */,
 				E6767B0F2A381DE300EEB385 /* MockMessageService.swift in Sources */,
@@ -401,13 +416,14 @@
 				E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */,
 				E612C2E12A31F861003CFB70 /* Constants.swift in Sources */,
 				E600BD262A38468B009F099B /* AvatarView+Extensions.swift in Sources */,
+				E6EB161B2A385AFE003310A0 /* PollMessage.swift in Sources */,
 				E6C4BF982A35C33B00A9BBFF /* PollMessage+Extensions.swift in Sources */,
 				E6D38B602A357A52009BC2DA /* AvatarView.swift in Sources */,
-				E652A8E12A28C8650010F621 /* Messages.swift in Sources */,
 				E6ED6BEA2A2D9C150052611A /* PollCreatorScreen.swift in Sources */,
 				E612C2E32A320014003CFB70 /* LKColors+Extensions.swift in Sources */,
 				E600BD1F2A38347D009F099B /* ImageTitleToggle.swift in Sources */,
 				E6A477772A284DA40024081F /* MessageListScreen.swift in Sources */,
+				E6EB16192A385AE6003310A0 /* TextMessage.swift in Sources */,
 				E652A8E52A28C9120010F621 /* User.swift in Sources */,
 				E66E585A2A35C8BF00A9DC82 /* Poll+Extensions.swift in Sources */,
 				E6097F1D2A36E73600663BE6 /* InfoSection.swift in Sources */,

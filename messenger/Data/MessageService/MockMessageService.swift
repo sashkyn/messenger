@@ -4,15 +4,15 @@ final class MockMessageService: MessageService {
     
     var currentUser: User { Constants.developer1 }
     
-    var messages: [any Message] {
+    var messages: [any ContentMessage] {
         messagesSubject.value
     }
     
-    var messagesPublisher: AnyPublisher<[any Message], Never> {
+    var messagesPublisher: AnyPublisher<[any ContentMessage], Never> {
         messagesSubject.eraseToAnyPublisher()
     }
     
-    private let messagesSubject = CurrentValueSubject<[any Message], Never>(Constants.messages)
+    private let messagesSubject = CurrentValueSubject<[any ContentMessage], Never>(Constants.messages)
     
     func send(text: String) {
         let textMessage = TextMessage(
@@ -70,7 +70,7 @@ extension MockMessageService {
         static let developer2: User = .init(id: 2, firstName: "Empty", lastName: "Cat")
         static let developer3: User = .init(id: 3, firstName: "Crazy", lastName: "Frog")
         
-        static let messages: [any Message] = [
+        static let messages: [any ContentMessage] = [
             TextMessage(
                 id: 0,
                 sender: developer1,
