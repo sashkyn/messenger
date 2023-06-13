@@ -1,24 +1,24 @@
 import SwiftUI
 import Combine
 
-struct PollEditOptionViewModel: Identifiable {
+struct PollEditOptionViewData: Identifiable {
     let id: Int64
     var text: String
 }
 
 struct PollEditOptionView: View {
     
-    @Binding var viewModel: PollEditOptionViewModel
+    @Binding var viewData: PollEditOptionViewData
     let onDelete: () -> Void
     
     var body: some View {
         HStack {
             ZStack(alignment: .leading) {
-                TextField("", text: $viewModel.text)
+                TextField("", text: $viewData.text)
                     .font(.poppins(type: .regular, size: 15.0))
                     .foregroundColor(LKColors.xFEFEFE)
                     .padding(15.0)
-                if viewModel.text.isEmpty {
+                if viewData.text.isEmpty {
                     Text("Option")
                         .font(.poppins(type: .regular, size: 15.0))
                         .foregroundColor(LKColors.x7E7A9A)
@@ -55,7 +55,7 @@ struct PollEditOptionView_Previews: PreviewProvider {
 
     static var previews: some View {
         PollEditOptionView(
-            viewModel: .constant(.init(id: 1, text: "")),
+            viewData: .constant(.init(id: 1, text: "")),
             onDelete: { }
         )
     }

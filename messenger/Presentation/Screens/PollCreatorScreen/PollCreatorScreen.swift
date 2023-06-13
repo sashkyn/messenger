@@ -32,11 +32,11 @@ struct PollCreatorScreen: View {
                             trailingTitle: viewModel.optionsLimitTitle,
                             backgroundColor: .clear
                         ) {
-                            ForEach($viewModel.optionViewModels) { optionViewModel in
+                            ForEach($viewModel.optionViewDataList) { viewData in
                                 PollEditOptionView(
-                                    viewModel: optionViewModel,
+                                    viewData: viewData,
                                     onDelete: {
-                                        viewModel.removePollOption(optionId: optionViewModel.wrappedValue.id)
+                                        viewModel.removePollOption(optionId: viewData.wrappedValue.id)
                                     }
                                 )
                                 .cornerRadius(10.0)

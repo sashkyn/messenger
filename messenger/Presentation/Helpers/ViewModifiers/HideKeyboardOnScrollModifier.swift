@@ -3,7 +3,7 @@ import SwiftUI
 struct HideKeyboardOnScrollModifier: ViewModifier {
     
     func body(content: Content) -> some View {
-        content.gesture(
+        content.simultaneousGesture(
             DragGesture(minimumDistance: 5.0)
                 .onChanged { _ in hideKeyboard() }
         )

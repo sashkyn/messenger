@@ -7,31 +7,31 @@ final class PollCreatorScreenViewModel: ObservableObject {
     private var service: MessageService
     
     @Published var question: String = ""
-    @Published var optionViewModels: [PollEditOptionViewModel] = []
+    @Published var optionViewDataList: [PollEditOptionViewData] = []
     var isAnonymousOption: Bool = false
     var abilityToAddMoreOptions: Bool = false
     var questionLimitTitle: String { "\(question.count)/\(Constants.maxTitleSymbolCount)" }
     var questionEnterTextEnabled: Bool { question.count > Constants.maxTitleSymbolCount }
-    var optionsLimitTitle: String { "\(optionViewModels.count)/\(Constants.maxOptionCount)" }
-    var addNewOptionEnabled: Bool { optionViewModels.count < Constants.maxOptionCount }
+    var optionsLimitTitle: String { "\(optionViewDataList.count)/\(Constants.maxOptionCount)" }
+    var addNewOptionEnabled: Bool { optionViewDataList.count < Constants.maxOptionCount }
     var createButtonEnabled: Bool {
-        !optionViewModels.isEmpty &&
+        !optionViewDataList.isEmpty &&
         !question.isEmpty &&
-        optionViewModels.filter { $0.text.isEmpty }.isEmpty
+        optionViewDataList.filter { $0.text.isEmpty }.isEmpty
     }
     
     @MainActor
     func appendPollOption() {
-        let viewModel = PollEditOptionViewModel(
-            id: Int64(optionViewModels.count),
+        let viewModel = PollEditOptionViewData(
+            id: Int64(optionViewDataList.count),
             text: ""
         )
-        optionViewModels.append(viewModel)
+        optionViewDataList.append(viewModel)
     }
     
     @MainActor
     func removePollOption(optionId: Int64) {
-        optionViewModels.removeAll(where: { $0.id == optionId })
+        optionViewDataList.removeAll(where: { $0.id == optionId })
     }
     
     @MainActor
@@ -39,7 +39,7 @@ final class PollCreatorScreenViewModel: ObservableObject {
         service.send(
             poll: Poll(
                 title: question,
-                options: optionViewModels.map { PollOption(id: $0.id, text: $0.text) },
+                options: optionViewDataList.map { PollOption(id: $0.id, text: $0.text) },
                 userAnswers: [:]
             )
         )
