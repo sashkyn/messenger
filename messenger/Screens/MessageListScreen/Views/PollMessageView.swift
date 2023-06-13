@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct PollMessageView: View {
+    
     let message: PollMessage
     let onOption: (Int64?) -> Void
     

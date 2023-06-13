@@ -2,6 +2,7 @@ import SwiftUI
 import URLImage
 
 struct TextMessageView: View {
+    
     let message: TextMessage
     
     var body: some View {
@@ -36,6 +37,7 @@ struct TextMessageView_Previews: PreviewProvider {
                 asdg asdg asdg asdgasdgasdg
                 """
             )
-        ).background(LKColors.x14131B)
+        )
+        .background(LKColors.x14131B)
     }
 }

@@ -16,6 +16,8 @@
 		E652A8E82A28C9650010F621 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E72A28C9650010F621 /* MessageService.swift */; };
 		E66E585A2A35C8BF00A9DC82 /* Poll+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */; };
 		E6767B0A2A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B092A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift */; };
+		E6767B0F2A381DE300EEB385 /* MockMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B0E2A381DE300EEB385 /* MockMessageService.swift */; };
+		E6767B112A381E4700EEB385 /* PollAddAnOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B102A381E4700EEB385 /* PollAddAnOptionView.swift */; };
 		E6A11BBA2A31DC8B0041B705 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A11BB92A31DC8B0041B705 /* View+Extensions.swift */; };
 		E6A477752A284DA40024081F /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477742A284DA40024081F /* MessengerApp.swift */; };
 		E6A477772A284DA40024081F /* MessageListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A477762A284DA40024081F /* MessageListScreenView.swift */; };
@@ -49,6 +51,8 @@
 		E652A8E72A28C9650010F621 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Poll+Extensions.swift"; sourceTree = "<group>"; };
 		E6767B092A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardOnScrollModifier.swift; sourceTree = "<group>"; };
+		E6767B0E2A381DE300EEB385 /* MockMessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessageService.swift; sourceTree = "<group>"; };
+		E6767B102A381E4700EEB385 /* PollAddAnOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollAddAnOptionView.swift; sourceTree = "<group>"; };
 		E6A11BB92A31DC8B0041B705 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		E6A477712A284DA40024081F /* messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6A477742A284DA40024081F /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			children = (
 				E652A8DF2A28C85B0010F621 /* Entities */,
 				E652A8E72A28C9650010F621 /* MessageService.swift */,
+				E6767B0E2A381DE300EEB385 /* MockMessageService.swift */,
 			);
 			path = MessageService;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 		E6ED6BEB2A2F28210052611A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E6767B102A381E4700EEB385 /* PollAddAnOptionView.swift */,
 				E6ED6BEC2A2F282B0052611A /* PollEditOptionView.swift */,
 				E6097F1C2A36E73600663BE6 /* LKSection.swift */,
 			);
@@ -327,6 +333,8 @@
 				E6ED6BE42A2C90650052611A /* TextMessageView.swift in Sources */,
 				E6ED6BDE2A2C8EB70052611A /* User+Extensions.swift in Sources */,
 				E6ED6BED2A2F282B0052611A /* PollEditOptionView.swift in Sources */,
+				E6767B112A381E4700EEB385 /* PollAddAnOptionView.swift in Sources */,
+				E6767B0F2A381DE300EEB385 /* MockMessageService.swift in Sources */,
 				E652A8E82A28C9650010F621 /* MessageService.swift in Sources */,
 				E6ED6BE82A2C94D30052611A /* MessageTextField.swift in Sources */,
 				E612C2E12A31F861003CFB70 /* Constants.swift in Sources */,

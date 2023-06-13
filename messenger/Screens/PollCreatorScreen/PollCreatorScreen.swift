@@ -53,7 +53,6 @@ final class PollCreatorScreenViewModel: ObservableObject {
 }
 
 struct PollCreatorScreen: View {
-    
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: PollCreatorScreenViewModel
     
@@ -100,22 +99,16 @@ struct PollCreatorScreen: View {
                                 viewModel: optionViewModel,
                                 onDelete: {
                                     viewModel.removePollOption(optionId: optionViewModel.wrappedValue.id)
-                                })
-                                .cornerRadius(10.0)
+                                }
+                            )
+                            .cornerRadius(10.0)
                         }
                         
                         if (viewModel.addNewOptionEnabled) {
-                            Button(action: {
-                                viewModel.appendPollOption()
-                            }) {
-                                Text("Add an option")
-                                    .font(.poppins(type: .regular, size: 15.0))
-                                    .foregroundColor(LKColors.x1C6EF2)
-                                    .padding(15.0)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(LKColors.x1C1A2A)
-                                    .cornerRadius(10.0)
-                            }
+                            PollAddAnOptionView(
+                                action: { viewModel.appendPollOption() }
+                            )
+                            .cornerRadius(10.0)
                         }
                     }
                     

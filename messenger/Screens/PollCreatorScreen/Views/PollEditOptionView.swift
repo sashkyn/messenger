@@ -1,9 +1,6 @@
 import SwiftUI
 import Combine
 
-/// TODO:
-/// bug with deletion on textfield tap
-
 struct PollEditOptionViewModel: Identifiable {
     let id: Int64
     var text: String
