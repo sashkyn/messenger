@@ -1,5 +1,4 @@
 import SwiftUI
-import URLImage
 
 struct TextMessageView: View {
     
