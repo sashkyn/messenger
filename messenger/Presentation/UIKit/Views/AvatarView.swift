@@ -7,11 +7,11 @@ struct AvatarView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 15)
+            RoundedRectangle(cornerRadius: 15.0)
                 .fill(color)
-                .frame(width: 40, height: 40)
+                .frame(width: 40.0, height: 40.0)
             Text(text)
-                .font(.poppins(type: .regular, size: 24))
+                .font(.poppins(type: .regular, size: 24.0))
                 .foregroundColor(.white)
         }
     }

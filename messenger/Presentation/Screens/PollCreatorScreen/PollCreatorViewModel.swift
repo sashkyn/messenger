@@ -7,31 +7,31 @@ final class PollCreatorScreenViewModel: ObservableObject {
     private var service: MessageService
     
     @Published var question: String = ""
-    @Published var optionViewDataList: [PollEditOptionViewData] = []
+    @Published var options: [PollEditOptionView.ViewData] = []
     var isAnonymousOption: Bool = false
     var abilityToAddMoreOptions: Bool = false
     var questionLimitTitle: String { "\(question.count)/\(Constants.maxTitleSymbolCount)" }
     var questionEnterTextEnabled: Bool { question.count > Constants.maxTitleSymbolCount }
-    var optionsLimitTitle: String { "\(optionViewDataList.count)/\(Constants.maxOptionCount)" }
-    var addNewOptionEnabled: Bool { optionViewDataList.count < Constants.maxOptionCount }
+    var optionsLimitTitle: String { "\(options.count)/\(Constants.maxOptionCount)" }
+    var addNewOptionEnabled: Bool { options.count < Constants.maxOptionCount }
     var createButtonEnabled: Bool {
-        !optionViewDataList.isEmpty &&
+        !options.isEmpty &&
         !question.isEmpty &&
-        optionViewDataList.filter { $0.text.isEmpty }.isEmpty
+        options.filter { $0.text.isEmpty }.isEmpty
     }
     
     @MainActor
     func appendPollOption() {
-        let viewModel = PollEditOptionViewData(
-            id: Int64(optionViewDataList.count),
+        let viewData = PollEditOptionView.ViewData(
+            id: Int64(options.count),
             text: ""
         )
-        optionViewDataList.append(viewModel)
+        options.append(viewData)
     }
     
     @MainActor
     func removePollOption(optionId: Int64) {
-        optionViewDataList.removeAll(where: { $0.id == optionId })
+        options.removeAll(where: { $0.id == optionId })
     }
     
     @MainActor
@@ -39,7 +39,7 @@ final class PollCreatorScreenViewModel: ObservableObject {
         service.send(
             poll: Poll(
                 title: question,
-                options: optionViewDataList.map { PollOption(id: $0.id, text: $0.text) },
+                options: options.map { PollOption(id: $0.id, text: $0.text) },
                 userAnswers: [:]
             )
         )

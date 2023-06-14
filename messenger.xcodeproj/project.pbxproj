@@ -18,6 +18,7 @@
 		E612C2E32A320014003CFB70 /* LKColors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */; };
 		E652A8E52A28C9120010F621 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E42A28C9120010F621 /* User.swift */; };
 		E652A8E82A28C9650010F621 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E652A8E72A28C9650010F621 /* MessageService.swift */; };
+		E6597E4A2A39544300508E8A /* PollMessageOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6597E492A39544300508E8A /* PollMessageOptionView.swift */; };
 		E66E585A2A35C8BF00A9DC82 /* Poll+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */; };
 		E6767B0A2A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B092A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift */; };
 		E6767B0F2A381DE300EEB385 /* MockMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6767B0E2A381DE300EEB385 /* MockMessageService.swift */; };
@@ -59,6 +60,7 @@
 		E612C2E22A320014003CFB70 /* LKColors+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LKColors+Extensions.swift"; sourceTree = "<group>"; };
 		E652A8E42A28C9120010F621 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E652A8E72A28C9650010F621 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		E6597E492A39544300508E8A /* PollMessageOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollMessageOptionView.swift; sourceTree = "<group>"; };
 		E66E58592A35C8BF00A9DC82 /* Poll+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Poll+Extensions.swift"; sourceTree = "<group>"; };
 		E6767B092A372A6C00EEB385 /* HideKeyboardOnScrollModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardOnScrollModifier.swift; sourceTree = "<group>"; };
 		E6767B0E2A381DE300EEB385 /* MockMessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessageService.swift; sourceTree = "<group>"; };
@@ -170,6 +172,15 @@
 				E652A8E42A28C9120010F621 /* User.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		E6597E482A39543900508E8A /* PollMessageView */ = {
+			isa = PBXGroup;
+			children = (
+				E6ED6BE52A2C90750052611A /* PollMessageView.swift */,
+				E6597E492A39544300508E8A /* PollMessageOptionView.swift */,
+			);
+			path = PollMessageView;
 			sourceTree = "<group>";
 		};
 		E6767B0D2A372AEF00EEB385 /* ViewModifiers */ = {
@@ -307,8 +318,8 @@
 		E6ED6BE22A2C904F0052611A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E6597E482A39543900508E8A /* PollMessageView */,
 				E6ED6BE32A2C90650052611A /* TextMessageView.swift */,
-				E6ED6BE52A2C90750052611A /* PollMessageView.swift */,
 				E6ED6BE72A2C94D30052611A /* MessageTextField.swift */,
 			);
 			path = Views;
@@ -445,6 +456,7 @@
 				E612C2DF2A31F6F5003CFB70 /* Color+Extensions.swift in Sources */,
 				E6A477752A284DA40024081F /* MessengerApp.swift in Sources */,
 				E6ED6BE62A2C90750052611A /* PollMessageView.swift in Sources */,
+				E6597E4A2A39544300508E8A /* PollMessageOptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

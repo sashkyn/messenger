@@ -1,14 +1,17 @@
 import SwiftUI
 import Combine
 
-struct PollEditOptionViewData: Identifiable {
-    let id: Int64
-    var text: String
+extension PollEditOptionView {
+    
+    struct ViewData: Identifiable {
+        let id: Int64
+        var text: String
+    }
 }
 
 struct PollEditOptionView: View {
     
-    @Binding var viewData: PollEditOptionViewData
+    @Binding var viewData: ViewData
     let onDelete: () -> Void
     
     var body: some View {

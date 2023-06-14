@@ -15,10 +15,11 @@ final class MockMessageService: MessageService {
     private let messagesSubject = CurrentValueSubject<[any ContentMessage], Never>(Constants.messages)
     
     func send(text: String) {
+        let resultContent = text.trimmingCharacters(in: .whitespacesAndNewlines)
         let textMessage = TextMessage(
             id: Int64.random(in: 0..<9999999),
             sender: Constants.developer1,
-            content: text
+            content: resultContent
         )
         messagesSubject.send(messages + [textMessage])
     }

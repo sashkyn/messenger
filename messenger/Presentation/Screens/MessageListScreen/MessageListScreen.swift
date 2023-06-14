@@ -17,35 +17,21 @@ struct MessageListScreen: View {
                                 ForEach(viewModel.messages, id: \.id) { message in
                                     switch message {
                                     case let textMessage as TextMessage:
-                                        TextMessageView(message: textMessage)
+                                        makeTextMessageView(textMessage: textMessage)
                                     case let pollMessage as PollMessage:
-                                        PollMessageView(
-                                            message: pollMessage,
-                                            onOption: { optionId in
-                                                viewModel.select(
-                                                    pollOptionId: optionId,
-                                                    inPollMessageId: message.id
-                                                )
-                                            }
-                                        )
+                                        makePollMessageView(pollMessage: pollMessage)
                                     default:
-                                        TextMessageView(
-                                            message: .init(
-                                                id: message.id,
-                                                sender: message.sender,
-                                                content: "Not supported message"
-                                            )
-                                        )
+                                        makeUnsupportedMessage(message: message)
                                     }
-                                }
-                                .onChange(of: viewModel.messages.count) { _ in
-                                    guard let lastMessageId = viewModel.messages.last?.id else {
-                                        return
-                                    }
-                                    scrollViewProxy.scrollTo(lastMessageId)
                                 }
                             }
                             .padding(16.0)
+                        }
+                        .onChange(of: viewModel.messages.count) { _ in
+                            guard let lastMessageId = viewModel.messages.last?.id else {
+                                return
+                            }
+                            scrollViewProxy.scrollTo(lastMessageId)
                         }
                         .hideKeyboardOnScroll()
                         .background(LKColors.x14131B)
@@ -79,6 +65,39 @@ struct MessageListScreen: View {
         }
     }
 }
+
+// MARK: MessageView Factory
+
+private extension MessageListScreen {
+    
+    func makeTextMessageView(textMessage: TextMessage) -> some View {
+        TextMessageView(message: textMessage)
+    }
+    
+    func makePollMessageView(pollMessage: PollMessage) -> some View {
+        PollMessageView(
+            message: pollMessage,
+            onOption: { optionId in
+                viewModel.select(
+                    pollOptionId: optionId,
+                    inPollMessageId: pollMessage.id
+                )
+            }
+        )
+    }
+    
+    func makeUnsupportedMessage(message: any ContentMessage) -> some View {
+        TextMessageView(
+            message: .init(
+                id: message.id,
+                sender: message.sender,
+                content: "Not supported message"
+            )
+        )
+    }
+}
+
+// MARK: AppBar Customization
 
 private extension View {
     

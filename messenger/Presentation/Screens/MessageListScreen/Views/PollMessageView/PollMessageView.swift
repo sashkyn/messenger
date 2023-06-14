@@ -34,15 +34,15 @@ struct PollMessageView: View {
                     }
                 }
             }
-            Spacer().frame(height: 20.0)
+            Spacer().frame(height: 12.0)
             
             Text(message.content.title)
                 .foregroundColor(.white)
-                .font(.poppins(type: .medium, size: 15))
+                .font(.poppins(type: .medium, size: 15.0))
             
             ForEach(message.content.options, id: \.id) { option in
                 let isSelected = option.id == message.getSelectedOptionId(senderId: message.sender.id)
-                PollOptionView(
+                PollMessageOptionView(
                     option: option,
                     isSelected: isSelected
                 )
@@ -65,29 +65,11 @@ struct PollMessageView: View {
                 endPoint: .bottomTrailing
             )
         )
-        .cornerRadius(15)
+        .cornerRadius(15.0)
     }
 }
 
-struct PollOptionView: View {
-    let option: PollOption
-    let isSelected: Bool
-    
-    var body: some View {
-        HStack {
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 16.0)
-                    .foregroundColor(isSelected ? LKColors.x7E7A9A : LKColors.x1C6EF2.opacity(0.15))
-                    .frame(height: 40.0)
-                Text(option.text)
-                    .font(.poppins(type: .regular, size: 12.0))
-                    .foregroundColor(LKColors.xFEFEFE)
-                    .padding(.leading, 16.0)
-                    .padding(.trailing, 16.0)
-            }
-        }
-    }
-}
+// MARK: Preview
 
 struct PollMessageView_Previews: PreviewProvider {
     

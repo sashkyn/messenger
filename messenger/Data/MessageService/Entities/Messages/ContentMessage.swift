@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ContentMessage<Content>: Identifiable {
+protocol ContentMessage<Content> {
     associatedtype Content
     
     var id: Int64 { get }

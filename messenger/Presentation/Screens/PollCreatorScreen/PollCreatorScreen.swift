@@ -22,7 +22,8 @@ struct PollCreatorScreen: View {
                                 text: $viewModel.question.limitedSet(
                                     predicate: { _ in viewModel.questionEnterTextEnabled }
                                 ),
-                                placeholderText: "Ask a question"
+                                placeholderText: "Ask a question",
+                                minHeight: 50.0
                             )
                             .cornerRadius(12.0)
                         }
@@ -32,7 +33,7 @@ struct PollCreatorScreen: View {
                             trailingTitle: viewModel.optionsLimitTitle,
                             backgroundColor: .clear
                         ) {
-                            ForEach($viewModel.optionViewDataList) { viewData in
+                            ForEach($viewModel.options) { viewData in
                                 PollEditOptionView(
                                     viewData: viewData,
                                     onDelete: {
