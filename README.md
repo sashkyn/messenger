@@ -12,9 +12,9 @@
 
 ### Screenshots
 
-<img src="readme/1.png" width="200">
-<img src="readme/2.png" width="200">
-<img src="readme/3.png" width="200">
+MessageList             |  PollCreator| MessageList with Poll
+:-:                     |:-:          |:-:
+<img src="readme/1.png" width="200">  |  <img src="readme/2.png" width="200"> | <img src="readme/3.png" width="200">
 
 ### Dependencies
 * [Factory](https://github.com/hmlongco/Factory) - for DI and future scalability
