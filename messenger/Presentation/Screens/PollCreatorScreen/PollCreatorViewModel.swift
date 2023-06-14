@@ -1,7 +1,7 @@
 import Combine
 import Factory
 
-final class PollCreatorScreenViewModel: ObservableObject {
+final class PollCreatorViewModel: ObservableObject {
     
     @Injected(\.messageService)
     private var service: MessageService
@@ -23,7 +23,7 @@ final class PollCreatorScreenViewModel: ObservableObject {
     @MainActor
     func appendPollOption() {
         let viewData = PollEditOptionView.ViewData(
-            id: Int64(options.count),
+            id: (options.max(by: { $0.id < $1.id })?.id ?? 0) + 1,
             text: ""
         )
         options.append(viewData)
@@ -48,7 +48,7 @@ final class PollCreatorScreenViewModel: ObservableObject {
 
 // MARK: Constants
 
-private extension PollCreatorScreenViewModel {
+private extension PollCreatorViewModel {
     
     struct Constants {
         static let maxTitleSymbolCount: Int = 50

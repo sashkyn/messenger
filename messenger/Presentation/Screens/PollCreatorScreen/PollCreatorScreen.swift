@@ -5,7 +5,7 @@ struct PollCreatorScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject
-    private var viewModel = PollCreatorScreenViewModel()
+    private var viewModel = PollCreatorViewModel()
     
     var body: some View {
         NavigationView {
