@@ -23,7 +23,7 @@ struct PollCreatorScreen: View {
                                     predicate: { _ in viewModel.questionEnterTextEnabled }
                                 ),
                                 placeholderText: "Ask a question",
-                                minHeight: 50.0
+                                minHeight: 40.0
                             )
                             .cornerRadius(12.0)
                         }
