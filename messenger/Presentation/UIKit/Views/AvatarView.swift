@@ -24,7 +24,7 @@ struct AvatarView_Previews: PreviewProvider {
     static var previews: some View {
         AvatarView(
             color: LKColors.x14131B,
-            text: "Funky Tapir"
+            text: "F"
         )
     }
 }

@@ -34,7 +34,7 @@ struct LKTextEditor_Previews: PreviewProvider {
     
     static var previews: some View {
         ExpandableTextEditor(
-            text: .constant("asdgasdgasdgasdgasdgasdg"),
+            text: .constant("asdgasdgasdgasdgasdgasdgasdfhsdfhsdfhsdfhsdfh"),
             placeholderText: "Placeholder",
             minHeight: 100.0
         )

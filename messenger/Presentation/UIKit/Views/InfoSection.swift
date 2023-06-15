@@ -46,8 +46,8 @@ struct LKSection_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             InfoSection(
-                leadingTitle: "1",
-                trailingTitle: "2",
+                leadingTitle: "1sdfhsdfhsdfhsdfh",
+                trailingTitle: "2wdgsdfghsdf",
                 backgroundColor: Color.red,
                 content: {
                     Text("hehehehehehe")
